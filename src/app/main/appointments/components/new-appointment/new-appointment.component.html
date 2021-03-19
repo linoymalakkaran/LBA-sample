@@ -1,0 +1,284 @@
+<div class="drawer-wrap" fxFlex fxLayout="column" fxLayoutAlign="none">
+    <div class="drawer-header" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="drawer-info">
+            <span class="drawer-title">Create Appointment</span>
+            <span class="drawer-percent">32% complete</span>
+        </div>
+        <atlp-progress-bar></atlp-progress-bar>
+    </div>
+    <div class="drawer-body">
+        <!-- Start Show details when progress-bar = 100%  -->
+        <!-- <div class="appointment-results">
+            <div class="panel-header" fxLayout="row" fxLayoutAlign="space-between center">
+                <h2 class="block-title">Time slot & Charges</h2>
+            </div>
+            <div class="appointment-info-row" fxLayout="row" fxLayoutAlign="space-between center">
+                <div class="appointment-info-col">
+                    <span class="appointment-title">Pick up Terminal</span>
+                    <span class="appointment-text">CTR</span>
+                </div>
+                <div class="appointment-info-col" fxLayout="column" fxLayoutAlign="start end">
+                    <button type="button" class="info-btn" fxLayout="row" fxLayoutAlign="center center"
+                        (click)="openSidebarComponents(SidebarName.charges)">
+                        Charges
+                        <mat-icon svgIcon="info-icon" aria-hidden="false"></mat-icon>
+                    </button>
+                    <span class="appointment-text">AED 100</span>
+                </div>
+            </div>
+        </div> -->
+        <!-- End Show details when progress-bar = 100%  -->
+
+        <!-- Start Air way bill details - Show when progress-bar = 50% -->
+        <div class="panel-header panel-header-border pb-20 mb-20" fxLayout="row" fxLayoutAlign="space-between center">
+            <h2 class="block-title">Air way bill details</h2>
+        </div>
+        <div class="mb-40">
+            <div class="bill-detail-wrap">
+                <ng-container *ngFor="let details of airWayDetails">
+                    <div class="bill-detail mb-20">
+                        <div class="appointment-title-row" fxLayout="row">
+                            <span class="appointment-text bold">AW-0000-0006</span>
+                            <span class="appointment-text">{{ details.time }} remaining</span>
+                        </div>
+                        <div class="appointment-info-row" fxLayout="row wrap" fxLayoutAlign="space-between center">
+                            <div class="appointment-info-col" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="22%">
+                                <span class="appointment-title">Pick up Terminal</span>
+                                <span class="appointment-text">{{ details.terminal }}</span>
+                            </div>
+                            <div class="appointment-info-col" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="22%">
+                                <span class="appointment-title">Gross Weight</span>
+                                <span class="appointment-text">{{ details.grossWeight }}</span>
+                            </div>
+                            <div class="appointment-info-col" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="22%">
+                                <span class="appointment-title">Chargeable Weight</span>
+                                <span class="appointment-text">{{ details.chargeableWeight }}</span>
+                            </div>
+                            <div class="appointment-info-col" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="22%">
+                                <span class="appointment-title">Custom Status</span>
+                                <span class="appointment-text">{{ details.status }}</span>
+                            </div>
+                        </div>
+                        <button type="button" class="remove-btn" *ngIf="airWayDetails.length > 1"
+                            (click)="removeDetailsItem(details.id)">
+                            <mat-icon svgIcon="file-remove" aria-hidden="false"></mat-icon>
+                        </button>
+                    </div>
+                </ng-container>
+            </div>
+            <button mat-raised-button color="primary" class="icon" (click)="openSidebarComponents(SidebarName.addAwb)">
+                <mat-icon svgIcon="plus-white" aria-hidden="false"></mat-icon>
+                Add AWB
+            </button>
+        </div>
+        <!-- End Air way bill details - Show when progress-bar = 50% -->
+
+        <!-- Start Appointment Date -->
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        <span class="panel-title">Appointment Date</span>
+                        <span class="panel-info">1 of 3 complete</span>
+                    </mat-panel-description>
+                    <atlp-progress-bar class="panel-small"></atlp-progress-bar>
+                </mat-expansion-panel-header>
+                <div class="panel-body">
+                    <div class="panel-row">
+                        <form [formGroup]="newDriverFormTwo">
+                            <div class="appointment-form-wrap py-30 px-30" fxLayout="row wrap"
+                                fxLayoutAlign="space-between center">
+                                <div class="field-wrap bg" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="22%"
+                                    fxLayout="column">
+                                    <div class="dropdown-col bg" fxFlex fxLayout="column">
+                                        <label for="#" class="dropdown-label">Regular Slot</label>
+                                        <mat-select placeholder="Select" class="dropdown-select bg"
+                                            panelClass="panel-custom bg" formControlName="regular_slot" required>
+                                            <mat-option *ngFor="let type of types" [value]="type.value">
+                                                {{type.viewValue}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </div>
+                                </div>
+                                <div class="field-wrap bg" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="22%"
+                                    fxLayout="column">
+                                    <label for="#" class="field-label">Appointment Date</label>
+                                    <div class="field-input-wrap">
+                                        <input placeholder="Choose a date" [matDatepicker]="picker"
+                                            (focus)="picker.open()" readonly formControlName="appointment_date"
+                                            required />
+                                        <mat-icon svgIcon="data-icon-white" aria-hidden="false"></mat-icon>
+                                    </div>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </div>
+                                <div class="field-wrap bg" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="22%"
+                                    fxLayout="column">
+                                    <label for="#" class="field-label">Appointment Time</label>
+                                    <div class="field-input-wrap">
+                                        <input type="text" formControlName="appointment_time" required />
+                                        <mat-icon svgIcon="time-icon" aria-hidden="false"></mat-icon>
+                                    </div>
+                                </div>
+                                <div class="field-wrap bg" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="22%"
+                                    fxLayout="column">
+                                    <div class="dropdown-col bg" fxFlex fxLayout="column">
+                                        <label for="#" class="dropdown-label">Credit</label>
+                                        <mat-select placeholder="Select" class="dropdown-select bg"
+                                            panelClass="panel-custom bg" formControlName="credit" required>
+                                            <mat-option *ngFor="let type of types" [value]="type.value">
+                                                {{type.viewValue}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+        <!-- End Appointment Date -->
+
+        <!-- Start Driver & Vehicle Details -->
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        <span class="panel-title">Driver & Vehicle Details</span>
+                        <span class="panel-info">1 of 3 complete</span>
+                    </mat-panel-description>
+                    <atlp-progress-bar class="panel-small"></atlp-progress-bar>
+                </mat-expansion-panel-header>
+
+                <div class="panel-body">
+                    <!-- <ng-container *ngFor="let details of driverDetails">
+                        <div class="appointment-info-row" fxLayout="row wrap" fxLayoutAlign="space-between center">
+                            <div class="appointment-info-col" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="22%">
+                                <span class="appointment-title">Driver Name</span>
+                                <span class="appointment-text">{{ details.name }}</span>
+                            </div>
+                            <div class="appointment-info-col" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="22%">
+                                <span class="appointment-title">Driver Contact</span>
+                                <span class="appointment-text">{{ details.contact }}</span>
+                            </div>
+                            <div class="appointment-info-col" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="22%">
+                                <span class="appointment-title">Vehicle</span>
+                                <span class="appointment-text">{{ details.vehicle }}</span>
+                            </div>
+                            <div class="appointment-info-col" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="22%">
+                                <span class="appointment-title">Vehicle Type</span>
+                                <span class="appointment-text">{{ details.vehicleType }}</span>
+                            </div>
+                        </div>
+                    </ng-container> -->
+                    <button mat-raised-button color="primary"
+                        (click)="openSidebarComponents(SidebarName.addDriver)">Load Driver</button>
+                </div>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+        <!-- End Driver & Vehicle Details -->
+
+        <!-- Start Contact Person -->
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        <span class="panel-title">Contact Person</span>
+                        <span class="panel-info">1 of 3 complete</span>
+                    </mat-panel-description>
+                    <atlp-progress-bar class="panel-small"></atlp-progress-bar>
+                </mat-expansion-panel-header>
+
+                <div class="panel-row">
+                    <form>
+                        <mat-checkbox checked="true" class="bg mb-32">Same As Driver</mat-checkbox>
+                        <div class="appointment-form-wrap py-30 px-30" fxLayout="row wrap"
+                            fxLayoutAlign="space-between center">
+                            <div class="field-wrap bg disabled" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="22%"
+                                fxLayout="column">
+                                <label for="#" class="field-label">Contact Name</label>
+                                <div class="field-input-wrap">
+                                    <input type="text" required />
+                                </div>
+                            </div>
+                            <div class="field-wrap bg disabled" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="22%"
+                                fxLayout="column">
+                                <label for="#" class="field-label">Contact Email</label>
+                                <div class="field-input-wrap">
+                                    <input type="text" required />
+                                </div>
+                            </div>
+                            <div class="field-wrap bg disabled" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="22%"
+                                fxLayout="column">
+                                <label for="#" class="field-label">Contact Number</label>
+                                <div class="field-input-wrap">
+                                    <input type="text" required />
+                                </div>
+                            </div>
+                            <div class="field-wrap bg disabled" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="22%">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- <mat-form-field>
+		</mat-form-field> -->
+            </mat-expansion-panel>
+        </mat-accordion>
+        <!-- End Contact Person -->
+
+        <!-- Upload Documents -->
+        <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        <span class="panel-title">Upload Documents</span>
+                        <span class="panel-info">1 of 3 complete</span>
+                    </mat-panel-description>
+                    <atlp-progress-bar class="panel-small"></atlp-progress-bar>
+                </mat-expansion-panel-header>
+
+                <div class="upload-file-row" fxLayout="row wrap" fxLayoutAlign="space-between start">
+                    <div class="upload-file-col" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-md="32%">
+                        <label for="#" class="upload-file-label mb-16">Airway bill</label>
+                        <app-file [typeFiles]="typeFiles" (loadedFiles)="loadedFiles($event)"></app-file>
+                    </div>
+                    <div class="upload-file-col" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-md="32%">
+                        <label for="#" class="upload-file-label mb-16">Commercial Invoice</label>
+                        <app-file [typeFiles]="typeFiles" (loadedFiles)="loadedFiles($event)"></app-file>
+                    </div>
+                    <div class="upload-file-col" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-md="32%">
+                        <label for="#" class="upload-file-label mb-16">Packing List</label>
+                        <app-file [typeFiles]="typeFiles" (loadedFiles)="loadedFiles($event)"></app-file>
+                    </div>
+                </div>
+                <div class="upload-file-col">
+                    <label for="#" class="upload-file-label mb-16">Packing List</label>
+                    <app-file [typeFiles]="typeFiles" (loadedFiles)="loadedFiles($event)"></app-file>
+                </div>
+
+                <!-- <mat-form-field>
+		        </mat-form-field> -->
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>
+
+<!-- Start panel nav -->
+<div class="panel-nav" fxLayout="column" fxLayoutAlign="space-between center">
+    <!-- close btn -->
+    <button class="round-btn panel-btn" (click)="toggleSidebarOpen(SidebarName.newAppointment)">
+        <mat-icon class="small-close-btn" svgIcon="close-white-icon" aria-hidden="false"></mat-icon>
+    </button>
+
+    <!-- soc-wrap -->
+    <div class="soc-wrap" fxLayout="column" fxLayoutAlign="end center">
+        <button class="round-btn">
+            <mat-icon svgIcon="soc-icon" aria-hidden="false"></mat-icon>
+        </button>
+        <button class="round-btn">
+            <mat-icon svgIcon="download-icon" aria-hidden="false"></mat-icon>
+        </button>
+    </div>
+</div>
+<!-- End panel nav -->

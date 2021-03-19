@@ -1,0 +1,130 @@
+<div class="min-width-100-per" class="table-container" fxFlex fxLayout="column">
+  <!-- Start table controls -->
+  <div class="table-controls" fxFlex="none" fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="table-filters" fxFlex="none" fxLayout="row" fxLayoutAlign="start center">
+      <button mat-raised-button color="basic" fxFlex="none">
+        <!-- <mat-icon svgIcon="plus-dark" aria-hidden="false"></mat-icon> -->
+        Filter
+      </button>
+      <!-- <mat-select class="dropdown-select" panelClass="panel-custom">
+        <mat-option *ngFor="let sort of sorts" [value]="sort.value">
+          {{sort.viewValue}}
+        </mat-option>
+      </mat-select> -->
+      <!-- <atlp-search-bar (input)="search($event)"></atlp-search-bar> -->
+    </div>
+  </div>
+  <!-- End table controls -->
+
+  <!-- Start table content -->
+  <div class="table-scroll-wrap" fxFlex="none">
+    <mat-table [dataSource]="dataSource" class="table">
+      <!-- Start Checkbox Column -->
+      <ng-container matColumnDef="select">
+        <mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+          </mat-checkbox>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(element) : null"
+            [checked]="selection.isSelected(element)" [aria-label]="checkboxLabel(element)">
+          </mat-checkbox>
+          <!-- Start <div class="loader"></div> -->
+        </mat-cell>
+      </ng-container>
+      <!-- End Checkbox Column -->
+
+      <!-- Start flow Column -->
+      <ng-container matColumnDef="flow">
+        <mat-header-cell *matHeaderCellDef> FLOW </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.flow}} </mat-cell>
+      </ng-container>
+      <!-- End flow Column -->
+
+      <!-- Start type Column -->
+      <ng-container matColumnDef="type">
+        <mat-header-cell *matHeaderCellDef> TYPE </mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.type}}</mat-cell>
+      </ng-container>
+      <!-- End type Column -->
+
+      <!-- Start book Column -->
+      <ng-container matColumnDef="book">
+        <mat-header-cell *matHeaderCellDef> BOO K </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.book}} </mat-cell>
+      </ng-container>
+      <!-- End book Column -->
+
+      <!-- Start container Column -->
+      <ng-container matColumnDef="container">
+        <mat-header-cell *matHeaderCellDef> CONTAINER </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.container}} </mat-cell>
+      </ng-container>
+      <!-- End container Column -->
+
+      <!-- Start ISO Column -->
+      <ng-container matColumnDef="iso">
+        <mat-header-cell *matHeaderCellDef> ISO </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.iso}} </mat-cell>
+      </ng-container>
+      <!-- End ISO Column -->
+
+      <!-- Start line Column -->
+      <ng-container matColumnDef="line">
+        <mat-header-cell *matHeaderCellDef> LINE </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.line}} </mat-cell>
+      </ng-container>
+      <!-- End line Column -->
+
+      <!-- Start info Column -->
+      <ng-container matColumnDef="info">
+        <mat-header-cell *matHeaderCellDef> INFO </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{element.info}}
+          <!-- <div class="table-nav" fxFlex fxLayout="row" fxLayoutAlign="end center">
+          <button mat-raised-button color="basic" class="icon">
+            <mat-icon svgIcon="plus-dark1" aria-hidden="false"></mat-icon>
+            Print
+          </button>
+          <button mat-raised-button color="basic" class="icon">
+            <mat-icon svgIcon="plus-dark1" aria-hidden="false"></mat-icon>
+            Clone
+          </button>
+          <button mat-raised-button color="warn">Delete</button>
+        </div> -->
+        </mat-cell>
+      </ng-container>
+      <!-- End info Column -->
+
+      <!-- Start expiry Column -->
+      <ng-container matColumnDef="expiry">
+        <mat-header-cell *matHeaderCellDef> EXPIRY </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.expiry}} </mat-cell>
+      </ng-container>
+      <!-- End expiry Column -->
+
+      <!-- Start hold Column -->
+      <ng-container matColumnDef="hold">
+        <mat-header-cell *matHeaderCellDef> HOLD </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.hold}} </mat-cell>
+      </ng-container>
+      <!-- End hold Column -->
+
+      <!-- Start trip Column -->
+      <ng-container matColumnDef="trip">
+        <mat-header-cell *matHeaderCellDef> TRIP </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.trip}} </mat-cell>
+      </ng-container>
+      <!-- End trip Column -->
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row)"></mat-row>
+    </mat-table>
+  </div>
+  <!-- End table content -->
+
+  <!-- Start mat-paginator -->
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="10"></mat-paginator>
+  <!-- End mat-paginator -->
+</div>

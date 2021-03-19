@@ -1,0 +1,121 @@
+<div class="drawer-wrap" fxFlex fxLayout="column" fxLayoutAlign=" none">
+    <div class="drawer-header" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="drawer-info">
+            <span class="drawer-title">Payment Checkout</span>
+        </div>
+    </div>
+
+    <div class="drawer-body">
+        <div class="panel-header" fxLayout="row" fxLayoutAlign="space-between center">
+            <h2 class="block-title">Company Information</h2>
+        </div>
+
+        <div class="appointment-info">
+            <div class="appointment-title-row" fxLayout="row">
+                <span class="appointment-text bold">ABC Shipping</span>
+                <span class="appointment-text">35 St, Al manama tower, Abu dhabi UAE</span>
+            </div>
+            <div class="appointment-info-row" fxLayout="row wrap" fxLayoutAlign="space-between center">
+                <div class="appointment-info-col" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="31%">
+                    <span class="appointment-title">Customer ID</span>
+                    <span class="appointment-text">1124531</span>
+                </div>
+                <div class="appointment-info-col" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="30%">
+                    <span class="appointment-title">ceo / Partner / GM</span>
+                    <span class="appointment-text">Sonail Peter</span>
+                </div>
+                <div class="appointment-info-col" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="13%">
+                    <span class="appointment-title">email</span>
+                    <span class="appointment-text">-</span>
+                </div>
+                <div class="appointment-info-col" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="13%">
+                    <span class="appointment-title">Phone</span>
+                    <span class="appointment-text">-</span>
+                </div>
+                <div class="appointment-info-col" fxFlex="100%" fxFlex.gt-xs="48%" fxFlex.gt-sm="13%">
+                    <span class="appointment-title">FAX</span>
+                    <span class="appointment-text">-</span>
+                </div>
+            </div>
+        </div>
+
+        <form [formGroup]="paymentForm">
+            <div class="payment-wrap">
+                <h2 class="block-title">Payment Method</h2>
+                <div class="payment-method" fxLayout="row wrap">
+                    <div class="payment-col method-radio" fxFlex="100%" fxFlex.gt-sm="40%">
+                        <mat-radio-button value="visa" checked>
+                            <img src="assets/images/visa.png" alt="">
+                            <mat-icon svgIcon="pay-check" aria-hidden="false"></mat-icon>
+                        </mat-radio-button>
+                        <mat-radio-button value="mastercard">
+                            <img src="assets/images/mastercard.png" alt="">
+                            <mat-icon svgIcon="pay-check" aria-hidden="false"></mat-icon>
+                        </mat-radio-button>
+                        <mat-radio-button value="banking">
+                            internet banking
+                            <mat-icon svgIcon="pay-check" aria-hidden="false"></mat-icon>
+                        </mat-radio-button>
+                    </div>
+                    <div class="payment-col" fxLayout="row wrap" fxFlex="100%" fxFlex.gt-sm="60%">
+                        <div class="field-wrap bg" fxFlex="100%" fxLayout="column">
+                            <label for="#" class="field-label">Card number</label>
+                            <div class="field-input-wrap">
+                                <input type="text" formControlName="card_number" [imask]="{mask: '0000 0000 0000 0000'}"
+                                    [unmask]="true" required />
+                            </div>
+                        </div>
+                        <div class="payment-row" fxLayout="row wrap" fxLayoutAlign="space-between center" fxFlex="100%">
+                            <div class="field-wrap bg" fxFlex="100%" fxFlex.gt-sm="60%" fxLayout="column">
+                                <label for="#" class="field-label">Card Holder Name</label>
+                                <div class="field-input-wrap">
+                                    <input type="text" formControlName="card_name" required />
+                                </div>
+                            </div>
+                            <div class="field-wrap bg" fxFlex="100%" fxFlex.gt-sm="18%" fxLayout="column">
+                                <label for="#" class="field-label">Expiry Date</label>
+                                <div class="field-input-wrap">
+                                    <input type="text" formControlName="card_date" [imask]="{mask: '00/00'}"
+                                        [unmask]="true" required />
+                                </div>
+                            </div>
+                            <div class="field-wrap bg" fxFlex="100%" fxFlex.gt-sm="18%" fxLayout="column">
+                                <label for="#" class="field-label">CVV</label>
+                                <div class="field-input-wrap">
+                                    <input type="text" formControlName="card_cvv" [imask]="{mask: '000'}"
+                                        [unmask]="true" required />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="payment-row" fxFlex="100%">
+                            <p class="base-text">Dear customer, please note that a processing fee will apply as 2.6% of
+                                the
+                                total amount plus AED 1 and VAT for each transaction.</p>
+                            <mat-checkbox class="bg">I agree</mat-checkbox>
+                        </div>
+
+                        <div class="payment-footer" fxFlex="100%" fxLayout="row" fxLayoutAlign="end center">
+                            <span class="appointment-text bold">Payable Amount: AED70.2</span>
+                            <button mat-raised-button color="primary" class="bg appointment-btn">Pay now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Start panel-nav -->
+<div class="panel-nav" fxLayout="column" fxLayoutAlign="space-between center">
+    <!-- close btn -->
+    <div class="panel-nav-top">
+        <button class="round-btn panel-btn" (click)="toggleSidebarOpen(SidebarName.payment)">
+            <mat-icon class="small-close-btn" svgIcon="close-white-icon" aria-hidden="false"></mat-icon>
+        </button>
+        <button class="round-btn panel-btn" (click)="toggleSidebarOpen(SidebarName.payment)">
+            <mat-icon svgIcon="back-arrow" aria-hidden="false"></mat-icon>
+        </button>
+    </div>
+</div>
+<!-- End panel-nav -->

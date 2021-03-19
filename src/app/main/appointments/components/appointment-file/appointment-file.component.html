@@ -1,0 +1,15 @@
+<div class="file">
+    <div class="file__wrap" fxFlex fxLayout="row" fxLayoutAlign="start center">
+        <div class="file__icon">
+            <mat-icon svgIcon="pdf-icon" aria-hidden="false"></mat-icon>
+        </div>
+        <div class="file__info" fxFlex fxLayout="column">
+            <span class="file__title">{{file.Name}}</span>
+            <span class="file__text">Date Attached: {{file.date}}</span>
+            <span class="file__text">Attached by: {{file.user}}</span>
+        </div>
+        <button type="button" class="file__btn">
+            <mat-icon svgIcon="file-remove" aria-hidden="false"></mat-icon>
+        </button>
+    </div>
+</div>

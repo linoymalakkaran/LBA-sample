@@ -1,0 +1,186 @@
+<div class="drawer-wrap charges" fxFlex fxLayout="column" fxLayoutAlign=" none">
+    <div class="drawer-wrap-container">
+        <div class="drawer-header" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+            <div class="drawer-info">
+                <span class="drawer-title">Charges</span>
+            </div>
+        </div>
+        <div class="drawer-body">
+            <div class="table-wrap-bg">
+                <h2 class="block-title">Master Airway bl detail</h2>
+                <mat-table [dataSource]="dataSource" class="table bg">
+
+                    <!-- Flight Column -->
+                    <ng-container matColumnDef="flight">
+                        <mat-header-cell *matHeaderCellDef> Flight</mat-header-cell>
+                        <mat-cell *matCellDef="let element">{{element.flight}} <br> {{element.date}}
+                        </mat-cell>
+                    </ng-container>
+
+                    <!-- Mawb/Hawb Column -->
+                    <ng-container matColumnDef="Mawb">
+                        <mat-header-cell *matHeaderCellDef> Mawb
+                            <br> Hawb
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.Mawb}} <br> {{element.Hawb}}</mat-cell>
+                    </ng-container>
+
+                    <!-- Aoo/Aod Column -->
+                    <ng-container matColumnDef="aoo">
+                        <mat-header-cell *matHeaderCellDef> AOO <br> AOD </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.aoo}} <br> {{element.aod}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Description Column -->
+                    <ng-container matColumnDef="description">
+                        <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+                    </ng-container>
+                    <!-- PCS Column -->
+                    <ng-container matColumnDef="pcs">
+                        <mat-header-cell *matHeaderCellDef> PCS </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.pcs}} </mat-cell>
+                    </ng-container>
+
+                    <!-- GRWT Column -->
+                    <ng-container matColumnDef="GRWT">
+                        <mat-header-cell *matHeaderCellDef> GRWT <br> CHWT </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.Grwt}} <br> {{element.chwt}} </mat-cell>
+                    </ng-container>
+
+                    <!-- units Column -->
+                    <ng-container matColumnDef="units">
+                        <mat-header-cell *matHeaderCellDef> Units <br> PCS </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.units}} <br> {{element.unitpcs}} </mat-cell>
+                    </ng-container>
+
+                    <!-- discount Column -->
+                    <ng-container matColumnDef="discount">
+                        <mat-header-cell *matHeaderCellDef> Discount <br> Tax </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                            {{element.discount}} <br> {{element.discounttax}}
+                        </mat-cell>
+                    </ng-container>
+
+                    <!-- tax Column -->
+                    <ng-container matColumnDef="tax">
+                        <mat-header-cell *matHeaderCellDef> Tax Amount <br> Amount </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                            {{element.tax}} <br> {{element.taxamount}}
+                        </mat-cell>
+                    </ng-container>
+                    <!-- total Column -->
+                    <ng-container matColumnDef="total">
+                        <mat-header-cell *matHeaderCellDef> Total </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                            {{element.total}}
+                        </mat-cell>
+                    </ng-container>
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+                <div class="amount-bordered">
+                    <p class="Amount-due">Ammount Due: {{DueAmount}} AED</p>
+                </div>
+            </div>
+
+            <!-- table 2 -->
+            <div class="table-wrap-bg">
+                <h2 class="block-title">MAQTA CHARGES</h2>
+                <mat-table [dataSource]="dataSource2" class="table bg">
+
+                    <!-- TariffID Column -->
+                    <ng-container matColumnDef="TariffID">
+                        <mat-header-cell *matHeaderCellDef> Tariff ID</mat-header-cell>
+                        <mat-cell *matCellDef="let element">{{element.TariffID}}
+                        </mat-cell>
+                    </ng-container>
+
+                    <!-- Description Column -->
+                    <ng-container matColumnDef="Description">
+                        <mat-header-cell *matHeaderCellDef> Description</mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.Description}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Qty Column -->
+                    <ng-container matColumnDef="Qty">
+                        <mat-header-cell *matHeaderCellDef> Qty </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.Qty}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Rate Column -->
+                    <ng-container matColumnDef="Rate">
+                        <mat-header-cell *matHeaderCellDef> Rate </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.Rate}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Amount Column -->
+                    <ng-container matColumnDef="Amount">
+                        <mat-header-cell *matHeaderCellDef> Amount <br> (Excl. Tax) </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.Amount}} </mat-cell>
+                    </ng-container>
+
+                    <!-- vat Column -->
+                    <ng-container matColumnDef="vat">
+                        <mat-header-cell *matHeaderCellDef> Vat Code </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.vat}} </mat-cell>
+                    </ng-container>
+
+                    <!-- vatrate Column -->
+                    <ng-container matColumnDef="vatrate">
+                        <mat-header-cell *matHeaderCellDef> Vat Rate% </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.vatrate}} </mat-cell>
+                    </ng-container>
+
+                    <!-- tax Column -->
+                    <ng-container matColumnDef="tax">
+                        <mat-header-cell *matHeaderCellDef> Tax Amount </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                            {{element.tax}}
+                        </mat-cell>
+                    </ng-container>
+
+                    <!-- total Column -->
+                    <ng-container matColumnDef="total">
+                        <mat-header-cell *matHeaderCellDef> Total (INC. Tax) </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                            {{element.total}}
+                        </mat-cell>
+                    </ng-container>
+                    <mat-header-row *matHeaderRowDef="displayedColumns2"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns2;"></mat-row>
+                </mat-table>
+                <div class="charges-disclaimer">
+                    <p class="disclaimer">Disclaimer : These charges are calculated based on the tariffs received in
+                        case of
+                        any amendments or
+                        partial dues
+                        incurred same is to be accounted for at the EAS terminal.</p>
+                    <div class="ammounts">
+                        <p class="Amount-due">Ammount Due: {{DueAmount2}} AED</p>
+                        <p class="Amount-due due2">Ammount Total: {{TotalAmmount}} AED</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Start panel-nav -->
+<div class="panel-nav" fxLayout="column" fxLayoutAlign="space-between center">
+    <div class="panel-nav-top">
+        <button class="round-btn panel-btn" (click)="toggleSidebarOpen(SidebarName.charges)">
+            <mat-icon class="small-close-btn" svgIcon="close-white-icon" aria-hidden="false"></mat-icon>
+        </button>
+        <button class="round-btn panel-btn" (click)="toggleSidebarOpen(SidebarName.charges)">
+            <mat-icon svgIcon="back-arrow" aria-hidden="false"></mat-icon>
+        </button>
+    </div>
+
+    <div class="soc-wrap" fxLayout="column" fxLayoutAlign="end center">
+        <button class="round-btn panel-btn">
+            <mat-icon svgIcon="credit-card-fill" aria-hidden="false"></mat-icon>
+        </button>
+    </div>
+</div>
+<!-- End panel-nav -->

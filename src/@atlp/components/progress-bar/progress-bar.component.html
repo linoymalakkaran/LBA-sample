@@ -1,0 +1,6 @@
+<ng-container *ngIf="visible">
+    <ng-container *ngIf="showTitle">
+        {{title}}
+    </ng-container>
+    <mat-progress-bar [bufferValue]="bufferValue" [mode]="mode" [value]="value"></mat-progress-bar>
+</ng-container>

@@ -1,0 +1,32 @@
+@import "src/@atlp/scss/variables";
+
+.header-info{
+    color:  map-get($color, 'atlp-purple-light'); 
+    font-size: 14px;
+    margin-bottom: 9px;
+}
+.header-value{
+    color: map-get($color,  'atlp-grey-light');
+}
+.Template-upload{
+    margin-top:40px;
+}
+.files-row{
+    margin-top: 80px;
+}
+.block-subtitle{
+    margin-bottom: 16px;
+    color: map-get($color,   'atlp-white');
+}
+.file-div{
+     margin-top: 13px;
+}
+.track-info-row{
+    min-width: 500px;
+}
+@media screen and (max-width:991px){
+    
+    .key-value-column{
+        margin-bottom: 20px;
+    }
+}

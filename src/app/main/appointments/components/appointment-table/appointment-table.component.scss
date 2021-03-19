@@ -1,0 +1,22 @@
+.table-scroll-wrap {
+    overflow: hidden;
+    overflow-x: auto;
+
+    .table {
+        min-width: 1000px;
+    }
+}
+
+.table-filters {
+    .dropdown-select {
+        margin: 0 20px;
+    }
+}
+
+.table-controls {
+    width: 100%;
+    padding: 0 0 16px 0;
+    .dropdown-select {
+        min-width: 100px;
+    }
+}

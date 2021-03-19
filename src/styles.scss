@@ -1,0 +1,49 @@
+// Fonts
+@import "assets/scss/abstracts/fonts";
+
+// Abstracts
+@import "assets/scss/abstracts/reset";
+@import "assets/scss/abstracts/default";
+
+// Import Atlp core library
+@import "@atlp/scss/core";
+
+// Import app.theme.scss
+@import "app/app.theme";
+
+// Abstracts
+@import "assets/scss/abstracts/functions";
+@import "assets/scss/abstracts/indents";
+
+// Variables
+@import "assets/scss/variables/color";
+
+// Layout
+@import "assets/scss/layout/header";
+
+// Components
+@import "assets/scss/components/avatars";
+@import "assets/scss/components/buttons";
+@import "assets/scss/components/select";
+@import "assets/scss/components/fields";
+@import "assets/scss/components/tables";
+@import "assets/scss/components/dropdown";
+@import "assets/scss/components/loader";
+@import "assets/scss/components/breadcrumb";
+@import "assets/scss/components/panel";
+@import "assets/scss/components/expansion-panel";
+@import "assets/scss/components/datepicker";
+@import "assets/scss/components/file";
+@import "assets/scss/components/appointment";
+@import "assets/scss/components/stepper";
+@import "assets/scss/components/payment";
+@import "assets/scss/components/slide-toggle";
+@import "assets/scss/components/snack-bar";
+
+// Voyage table
+@import "assets/scss/voyage-table/voyage-info.scss";
+@import "assets/scss/voyage-table/voyage-card.scss";
+
+min-width-100-per {
+  min-width: 100%;
+}

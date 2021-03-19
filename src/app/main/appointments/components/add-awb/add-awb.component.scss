@@ -1,0 +1,26 @@
+@import "src/@atlp/scss/variables";
+
+.awb-header {
+    padding-bottom: 24px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid map-get($color, 'atlp-panel-border');
+    .dropdown-col {
+        max-width: 292px;
+        margin-top: 15px;
+        @media (min-width: 960px) {
+            margin-top: 0;
+            margin-left: 12px;
+            max-width: 190px;
+        }
+    }
+}
+
+.awb-container {
+    .appointment-title-row {
+        padding-left: 29px;
+    }
+    .appointment-info-row {
+        margin-bottom: 22px;
+        border-bottom: 2px solid map-get($color, "atlp-panel-border");
+    }
+}

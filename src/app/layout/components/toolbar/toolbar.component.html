@@ -1,0 +1,27 @@
+<mat-toolbar class="p-0">
+    <div class="toolbar-container" fxFlex fxFill fxLayout="row" fxLayoutAlign="start center">
+        <app-menu></app-menu>
+        <span class="toolbar-btn-text" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">{{
+            currentNavigation?.title}} </span>
+
+        <div class="toolbar-body" fxLayout="row" fxLayoutAlign="start center">
+            <button class="icon-btn open-table-btn mr-12"> 
+                <mat-icon svgIcon="open-table-icon" aria-hidden="false"></mat-icon>
+            </button>
+            <atlp-search-bar (input)="search($event)"></atlp-search-bar>
+            <button mat-raised-button color="basic" class="icon filter-btn ml-12 mr-12" (click)="toggleSidebarOpen(SidebarName.filtersSidebar)">
+                <mat-icon svgIcon="filter-icon" aria-hidden="false"></mat-icon>
+                Filter
+            </button>
+            <button mat-raised-button color="basic">Customize</button>
+        </div>
+
+        <div class="toolbar-nav" fxFlex fxFill fxLayout="row" fxLayoutAlign="end center">
+            <button mat-raised-button color="primary" class="icon">
+                <mat-icon svgIcon="plus-white" aria-hidden="false"></mat-icon>
+                Start New
+            </button>
+            <header-user></header-user>
+        </div>
+    </div>
+</mat-toolbar>

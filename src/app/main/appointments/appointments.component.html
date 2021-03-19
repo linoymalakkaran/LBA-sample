@@ -1,0 +1,109 @@
+<div class="min-width-100-per">
+  <span class="toolbar-btn-text tablet">Appointments</span>
+  <div
+    class="container min-width-100-per"
+    fxFlex="none"
+    fxLayout="column"
+    fxLayoutAlign="start none"
+  >
+    <!-- Start controls buttons -->
+    <div class="controls-buttons">
+      <button
+        mat-raised-button
+        color="primary"
+        class="icon"
+        (click)="toggleSidebarOpen(SidebarName.newAppointment)"
+      >
+        <mat-icon svgIcon="plus-white" aria-hidden="false"></mat-icon>
+        New Appointment
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        class="icon"
+        (click)="toggleSidebarOpen(SidebarName.report)"
+      >
+        <mat-icon svgIcon="plus-white" aria-hidden="false"></mat-icon>
+        Open Report
+      </button>
+    </div>
+    <!-- End controls buttons -->
+    <!-- Start Appointment table -->
+    <appointments-table
+      (changeState)="toggleSidebarOpen($event)"
+    ></appointments-table>
+    <!-- End Appointment table -->
+  </div>
+</div>
+
+<!-- Start New appointment -->
+<atlp-sidebar
+  class="sidebar-with-content"
+  [name]="SidebarName.newAppointment"
+  position="right"
+  [folded]="false"
+  [invisibleOverlay]="true"
+  [superimposed]="true"
+>
+  <new-appointment
+    (changeState)="toggleSidebarOpen($event)"
+    [driverData]="driverData"
+    [awbData]="awbData"
+  ></new-appointment>
+</atlp-sidebar>
+<!-- End New appointment -->
+
+<!-- Start Add AWB -->
+<atlp-sidebar
+  class="sidebar-with-content"
+  [name]="SidebarName.addAwb"
+  position="right"
+  [folded]="false"
+  [invisibleOverlay]="true"
+  [superimposed]="true"
+>
+  <add-awb (data)="checkedAwb($event)"></add-awb>
+</atlp-sidebar>
+<!-- End Add AWB -->
+
+<!-- Start Add Driver -->
+<atlp-sidebar
+  class="sidebar-with-content"
+  [name]="SidebarName.addDriver"
+  position="right"
+  [folded]="false"
+  [invisibleOverlay]="true"
+  [superimposed]="true"
+>
+  <add-driver (data)="checkedDriver($event)"></add-driver>
+</atlp-sidebar>
+<!-- End Add Driver -->
+
+<!-- Start Charges -->
+<atlp-sidebar
+  class="sidebar-with-content"
+  [name]="SidebarName.charges"
+  position="right"
+  [folded]="false"
+  [invisibleOverlay]="true"
+  [superimposed]="true"
+>
+  <appointement-charges></appointement-charges>
+</atlp-sidebar>
+<!-- End Charges -->
+
+<!-- Start Report -->
+<atlp-sidebar
+  class="sidebar-with-content"
+  [name]="SidebarName.report"
+  position="right"
+  [folded]="false"
+  [invisibleOverlay]="true"
+  [superimposed]="true"
+>
+  <appointement-report
+    [appointement]="appointement"
+    [file]="file"
+  ></appointement-report>
+</atlp-sidebar>
+<!-- End Report -->

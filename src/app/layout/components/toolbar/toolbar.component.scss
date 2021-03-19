@@ -1,0 +1,96 @@
+@import "src/@atlp/scss/atlp";
+@import "src/@atlp/scss/variables";
+
+toolbar {
+    position: relative;
+    display: flex;
+    flex: 0 0 auto;
+    z-index: 4;
+
+    &.below {
+        z-index: 2;
+    }
+
+    .toolbar-container {
+        background-color: map-get($color, "atlp-white");
+        border-bottom: 2px solid map-get($color, "atlp-grey-dark");
+        padding: 0 15px;
+        @media (min-width: 600px) {
+            padding: 0 30px;
+        }
+    }
+
+    .mat-toolbar {
+        position: relative;
+        color: inherit !important;
+    }
+
+    .toolbar-btn-text {
+        margin-left: 16px;
+        font-size: 18px;
+    }
+
+    .toggle-sidebar-folded {
+        position: relative;
+        z-index: 1;
+        left: -4px;
+    }
+
+    .toolbar-nav {
+        button.icon {
+            display: none;
+            @media (min-width: 600px) {
+                display: block;
+            }
+        }
+    }
+
+    .toolbar-body {
+        margin-left: 95px;
+        @media (max-width: 1100px) {
+            display: none !important;
+        }
+    }
+    .filter-btn {
+        .mat-icon {
+            width: 12px;
+            height: 12px;
+            min-width: 12px;
+            min-height: 12px;
+        }
+    }
+    .toolbar-info {
+        width: auto !important;
+        flex: none !important;
+        margin-left: 20px;
+        position: relative;
+        &:before {
+            @media (min-width: 600px) {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 0;
+                height: 25px;
+                width: 1px;
+                transform: translateY(-50%);
+                background-color: map-get($color, "atlp-toolbar-border");
+            }
+        }
+        .avatars,
+        .tollbar-btn {
+            margin-left: 20px;
+        }
+
+        .tollbar-btn {
+            height: 22px;
+            display: none;
+            @media (min-width: 600px) {
+                display: block;
+            }
+        }
+        .mat-icon {
+            width: 22px;
+            height: 22px;
+        }
+    }
+}

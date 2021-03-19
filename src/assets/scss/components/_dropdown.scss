@@ -1,0 +1,131 @@
+.drop-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 10px;
+
+    .drop-name {
+        margin-right: 30px;
+    }
+
+    .dropdown-col {
+        margin-right: 30px;
+    }
+    
+    &.bg {
+        background-color:map-get($color, 'atlp-drawer-bg');
+        .drop-name {
+            color: map-get($color, 'atlp-white');
+        }
+    }
+}
+
+// Mat select
+.dropdown-col {
+    width: 100%;
+    flex: none !important;
+    &.disabled {
+        opacity: 0.4;
+        user-select: none;
+        pointer-events: none;
+    }
+    &.bg {
+        .dropdown-label {
+            color: map-get($color, 'atlp-grey-light');
+        }
+    }
+    .dropdown-label {
+        margin-bottom: 8px;
+    }
+}
+
+.dropdown-select {
+    width: 100%;
+    height: 33px;
+    border-radius: 6px;
+    background: map-get($color, "atlp-white");
+    border: 1px solid map-get($color, "atlp-grey-dark");
+    
+    &.bg {
+        background-color: transparent;
+        border: 1px solid map-get($color, "atlp-purple-base");
+        .mat-select-arrow {
+            border-left: 2px solid map-get($color, "atlp-white");
+            border-bottom: 2px solid map-get($color, "atlp-white");
+        }
+        .mat-select-value-text {
+            color: map-get($color, "atlp-white");
+        }
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+            .mat-select-arrow {
+                border-left: 2px solid map-get($color, "atlp-purple-light");
+                border-bottom: 2px solid map-get($color, "atlp-purple-light");
+            }
+        }
+    }
+    &:hover {
+        border: 1px solid map-get($color, "atlp-field-border");
+        .mat-select-arrow {
+            border-left: 2px solid map-get($color, "atlp-field-border");
+            border-bottom: 2px solid map-get($color, "atlp-field-border");
+        }
+    }
+    .mat-select-value {
+        padding: 7px 10px 6px;
+        &::placeholder {
+            font-style: italic;
+        }
+    }
+
+    .mat-select-arrow {
+        width: 6px;
+        height: 6px;
+        border-left: 2px solid map-get($color, "atlp-btn-outline-border");
+        border-bottom: 2px solid map-get($color, "atlp-btn-outline-border");
+        border-right: none;
+        border-top: none;
+        transform: rotate(-45deg);
+        margin: 0 10px 0 0;
+    }
+    .mat-select-placeholder{
+        color:map-get($color,  'atlp-grey-base') !important;
+        font-style: italic;
+    }
+}
+
+// dropdown styles
+.panel-custom {
+    margin: 45px 0px 0px 15px;
+    min-width: calc(100% + 2px) !important;
+    box-shadow: none !important;
+    border: 1px solid map-get($color, "atlp-grey-dark") !important;
+    &.bg {
+        border: 1px solid map-get($color, "atlp-purple-base") !important;
+        background-color: map-get($color, "atlp-purple-base") !important;
+        .mat-option-text {
+            color: map-get($color, "atlp-white");
+        }
+    }
+    &.multiple {
+        margin: 45px 0px 0px 40px;
+    }
+    .mat-option {
+        font-size: 14px !important;
+        line-height: 33px !important;
+        height: 33px !important;
+    }
+    hr {
+        width: 90%;
+        border:none;
+        height: 1px;
+        background-color: map-get($color, "atlp-hr-color") ;
+    }
+}
+.selectSectionheader{
+    font-size: 12px;
+    color: map-get($color,  "atlp-grey-dark" );
+    padding-left: 17px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}

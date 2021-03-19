@@ -1,0 +1,11 @@
+<div class="atlp-search-bar" [ngClass]="{'expanded':!collapsed}">
+    <div class="atlp-search-bar-content">
+        <label for="atlp-search-bar-input">
+            <!-- aria-label="Expand Search Bar" (click)="expand()" *ngIf="collapsed" -->
+            <button mat-icon-button class="atlp-search-bar-expander">
+                <mat-icon class="secondary-text">search</mat-icon>
+            </button>
+        </label>
+        <input id="atlp-search-bar-input" autocomplete="off" type="text" placeholder="Search here..." (input)="search($event)" fxFlex>
+    </div>
+</div>

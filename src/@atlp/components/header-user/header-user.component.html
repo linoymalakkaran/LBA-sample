@@ -1,0 +1,20 @@
+<div class="toolbar-info" fxFlex fxFill fxLayout="row" fxLayoutAlign="end center">
+    <button class="tollbar-btn">
+        <mat-icon svgIcon="question" aria-hidden="false"></mat-icon>
+    </button>
+    <button class="tollbar-btn">
+        <mat-icon svgIcon="notification" aria-hidden="false"></mat-icon>
+    </button>
+    <atlp-avatars [userData]="userData" [settingsAvatar]="settingsAvatar" [matMenuTriggerFor]="userMenu"></atlp-avatars>
+    
+    <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
+        <button mat-menu-item>
+            <mat-icon svgIcon="question" aria-hidden="false"></mat-icon>
+            <span>Question</span>
+        </button>
+        <button mat-menu-item class="">
+            <mat-icon svgIcon="notification" aria-hidden="false"></mat-icon>
+            <span>Notification</span>
+        </button>
+    </mat-menu>
+</div>

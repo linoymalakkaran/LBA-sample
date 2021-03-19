@@ -1,0 +1,31 @@
+<div class="navbar-top" [ngClass]="atlpConfig.layout.navbar.secondaryBackground">
+	<div class="navbar-head" fxFlex fxLayout="column">
+		<div class="logo-wrap" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+			<div class="logo" >
+				<img class="logo-icon" src="assets/images/logos/logo.svg">
+				<img class="logo-icon-hide" src="assets/images/logos/logo-hide.svg">
+			</div>
+			<button type="button" (click)="toggleSidebarOpen(SidebarName.navbar)">
+				<mat-icon svgIcon="icon-close" aria-hidden="false"></mat-icon>
+			</button>
+		</div>
+
+		<form [formGroup]="searchForm">
+			<div class="search-wrap" fxFlex fxLayout="row" fxLayoutAlign="start center">
+				<mat-icon class="s-16 secondary-text search-btn">search</mat-icon>
+				<mat-form-field class="search-input-field">
+					<input matInput formControlName="search" placeholder="Search..." autocomplete="off"/>
+				</mat-form-field>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div class="navbar-scroll-container" [ngClass]="atlpConfig.layout.navbar.primaryBackground" atlpPerfectScrollbar
+	[atlpPerfectScrollbarOptions]="{suppressScrollX: true}">
+
+	<div class="navbar-content">
+		<atlp-navigation class="" layout="vertical"></atlp-navigation>
+	</div>
+
+</div>

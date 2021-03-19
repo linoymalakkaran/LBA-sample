@@ -1,0 +1,71 @@
+<div class="drawer-wrap charges" fxFlex fxLayout="column" fxLayoutAlign=" none">
+    <div class="drawer-header" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="drawer-info">
+            <span class="drawer-title">Appointment Reference: {{appointement.reference}}</span>
+        </div>
+    </div>
+    <div class="drawer-body">
+
+        <div fxLayout="column" fxLayoutGap="40px" class="Template-upload">
+
+            <h2 class="block-title">UPLOAD TEMPLATE</h2>
+
+            <div class="track-info-row" fxFlex fxLayout="row wrap" fxLayoutAlign="space-between start">
+                <div class="key-value-column" fxFlex="25" fxFlex.sm="50" fxFlex.xs="50">
+                    <div class="header-info">APPOINTMENT REFERENCE</div>
+                    <div class="header-value">{{appointement.reference}}</div>
+                </div>
+                <div class="key-value-column" fxFlex="25" fxFlex.sm="50" fxFlex.xs="50">
+                    <div class="header-info">TRUCK NO</div>
+                    <div class="header-value">{{appointement.trucknumber}}</div>
+                </div>
+                <div class="key-value-column" fxFlex="25" fxFlex.sm="50" fxFlex.xs="50">
+                    <div class="header-info">PAYMENT MODE</div>
+                    <div class="header-value">{{appointement.paymentmode}}</div>
+                </div>
+                <div class="key-value-column" fxFlex="25" fxFlex.sm="50" fxFlex.xs="50">
+                    <div class="header-info">PAYMENT METHOD</div>
+                    <div class="header-value">{{appointement.paymentmethod}}</div>
+                </div>
+            </div>
+            <div class="track-info-row" fxFlex fxLayout="row wrap" fxLayoutAlign="space-between start">
+                <div class="key-value-column" fxFlex="25" fxFlex.sm="50" fxFlex.xs="50">
+                    <div class="header-info">PAYMENT DATE</div>
+                    <div class="header-value">{{appointement.paymentdate}}</div>
+                </div>
+                <div class="key-value-column" fxFlex="25" fxFlex.sm="50" fxFlex.xs="50">
+                    <div class="header-info">OTHER REFERENCE</div>
+                    <div class="header-value">{{appointement.otherreference}}</div>
+                </div>
+                <div class="key-value-column" fxFlex="25" fxFlex.sm="50" fxFlex.xs="50">
+                    <div class="header-info">TERMINAL</div>
+                    <div class="header-value">{{appointement.terminal}}</div>
+                </div>
+                <div class="key-value-column" fxFlex="25" fxFlex.sm="50" fxFlex.xs="50">
+                    <div class="header-info">TIME LAPSED</div>
+                    <div class="header-value">{{appointement.Timelapsed}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="files-row">
+            <h2 class="block-title">ATTACHED DOCUMENTS</h2>
+            <p class="block-subtitle">Certificate of Registry</p>
+            <app-file [typeFiles]="typeFiles" (loadedFiles)="loadedFiles($event)"></app-file>
+        </div>
+    </div>
+</div>
+
+<!-- panel-nav -->
+<div class="panel-nav" fxLayout="column" fxLayoutAlign="space-between center">
+    <!-- close btn -->
+    <button class="round-btn panel-btn" (click)="toggleSidebarOpen(SidebarName.report)">
+        <mat-icon class="small-close-btn" svgIcon="close-white-icon" aria-hidden="false"></mat-icon>
+    </button>
+
+    <!-- soc-wrap -->
+    <div class="soc-wrap" fxLayout="column" fxLayoutAlign="end center">
+        <button class="round-btn">
+            <mat-icon svgIcon="print-icon" aria-hidden="false"></mat-icon>
+        </button>
+    </div>
+</div>

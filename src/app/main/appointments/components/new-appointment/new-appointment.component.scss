@@ -1,0 +1,49 @@
+.appointment-form-wrap {
+    // padding: 30px;
+    // margin: 0 -15px;
+
+    .field-wrap {
+        // padding: 0 15px;
+        width: 100%;
+        margin-bottom: 20px;
+        @media (min-width: 768px) {
+            margin-bottom: 30px;
+        }
+        @media (min-width: 960px) {
+            margin-bottom: 0;
+        }
+        &:last-child {
+            @media (max-width: 599px) {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.bill-detail {
+    position: relative;
+    border-bottom: 2px dashed #5f5b8e;
+    &:last-child {
+        border-bottom: none;
+    }
+    .remove-btn {
+        position: absolute;
+        top: -10px;
+        right: 5px;
+        @media (min-width: 768px) {
+            top: 0;
+            right: 15px;
+        }
+        &:hover {
+            path {
+                fill: red;
+            }
+        }
+        .mat-icon {
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            min-height: 32px;
+        }
+    }
+}

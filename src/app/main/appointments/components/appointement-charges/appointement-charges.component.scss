@@ -1,0 +1,55 @@
+@import "src/@atlp/scss/variables";
+
+.charges {
+    .mat-table {
+        // min-width: 1070px;
+    }
+    .mat-header-row {
+          border-bottom: 1px solid map-get($color, 'atlp-purple-light');
+    }
+    .mat-row {
+        padding-top: 18px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid map-get($color, 'atlp-purple-light');
+
+    }
+    .mat-header-cell {
+        font-size: 14px;
+    }
+    .amount-bordered {
+        display: flex;
+         padding-top: 18px;
+        padding-bottom: 18px;
+        align-items: flex-end;
+        justify-content: flex-end;
+         border-bottom: 1px solid map-get($color, 'atlp-purple-light');
+         padding-right: 3px;
+    }
+    .mat-cell:first-of-type, .mat-header-cell:first-of-type, .mat-footer-cell:first-of-type
+     {
+        padding-left: 0px;
+    }
+    .Amount-due {
+            float: right;
+    
+    color:  map-get($color, 'atlp-purple-light') ;
+    }
+    .charges-disclaimer {
+        display: flex;
+        margin-top: 12px;
+        justify-content: space-between;
+    }
+    .disclaimer {
+        width: 50%;
+         color:  map-get($color, 'atlp-grey-base') ;
+         font-size: 12px;
+    }
+    .due2 {
+         margin-top: 5px;
+    }
+    .ammounts {
+        display: flex;
+        
+        flex-direction: column;
+    }
+}

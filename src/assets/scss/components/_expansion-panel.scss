@@ -1,0 +1,111 @@
+.mat-expansion-panel-content {
+    font-family: 'Museo Sans', 'Helvetica Neue', 'Arial', sans-serif !important;
+    font-weight: 500 !important; 
+}
+
+.mat-expansion-panel {
+    background: transparent !important;
+    box-shadow: none !important;
+    margin-bottom: 30px !important;
+    .mat-content {
+        align-items: center;
+        position: relative;
+    }
+    @media (min-width: 768px) {
+        margin-bottom: 40px !important;
+    }
+}
+
+.mat-expansion-panel-body {
+    padding: 20px 0px 5px 0px !important;
+}
+
+.mat-expansion-panel-header {
+    padding: 0 !important;
+}
+
+.mat-expansion-panel-header-title {
+    width: 180px;
+    margin-right: 80px;
+    flex-grow: 0 !important;
+    color: map-get($color, "atlp-white") !important;
+}
+
+.mat-expansion-panel-header-description {
+    position: relative;
+    margin-right: 0 !important;
+    padding-bottom: 15px;
+    margin-bottom: 5px;
+    @media (min-width: 768px) {
+        padding-bottom: 20px;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        border-bottom: 2px solid map-get($color, "atlp-panel-border");
+    }
+}
+
+.mat-expansion-panel-header:hover {
+    background: transparent !important;
+}
+
+.mat-expansion-indicator {
+    position: relative;
+    right: 10px;
+    top: -12px;
+    font-size: 0;
+}
+
+.mat-expansion-panel-spacing {
+    .mat-expansion-indicator {
+        top: -9px;
+    }
+}
+
+.mat-expansion-indicator::after {
+    color: map-get($color, "atlp-white") !important;
+}
+
+.panel-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: map-get($color, "atlp-panel-title");
+    @media (min-width: 768px) {
+        font-size: 16px;
+    }
+}
+
+.panel-info {
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0 25px 0 auto;
+    color: map-get($color, "atlp-grey-base");
+    @media (min-width: 768px) {
+        font-size: 16px;
+    }
+}
+
+.panel-header {
+    margin-bottom: 25px;
+
+    &.panel-header-border {
+        border-bottom: 2px solid map-get($color, "atlp-panel-border");
+    }
+
+    .block-title {
+        margin-bottom: 0;
+    }
+    
+}
+
+.panel-body {
+    .search-bar-bg {
+        margin-bottom: 32px;
+        display: block;
+    }
+}

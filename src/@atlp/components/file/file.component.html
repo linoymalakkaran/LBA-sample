@@ -1,0 +1,44 @@
+<div class="file-wrap">
+    <ngx-awesome-uploader class="awesome-uploader" #uploader [adapter]="adapter" [fileMaxCount]="10" [fileMaxSize]="20"
+        [uploadType]="uploadType" (validationError)="onValidationError($event)" [fileExtensions]="typeFiles"
+        [enableCropper]="false" (uploadSuccess)="onUploadSuccess($event)" (removeSuccess)="onRemoveSuccess($event)"
+        (fileAdded)="onFileAdded($event)" (fileRemoved)="onFileRemoved($event)" [itemTemplate]="myItemTemplate">
+        <div class="dropzoneTemplate" #drop [class.hide-drop]="!showDrop">
+            <div class="upload-wrap" fxLayout="column" fxLayoutAlign="center center">
+                <mat-icon svgIcon="folder" aria-hidden="false"></mat-icon>
+                <span class="upload-title">Drop your file here</span>
+                <span class="upload-title">OR</span>
+                <label for="file">Browse Files</label>
+                <span class="upload-text">Maximum size 5MB</span>
+            </div>
+        </div>
+    </ngx-awesome-uploader>
+    <ng-template #myItemTemplate let-fileItem="fileItem" let-uploadProgress="uploadProgress">
+        <div class="file">
+            <div class="file__wrap" fxFlex fxLayout="row" fxLayoutAlign="start center">
+                <!-- <div class="file__icon">
+                    <mat-icon *ngIf="fileItem.file.type===TypeFile.PNG" svgIcon="folder" aria-hidden="false"></mat-icon>
+                    <mat-icon *ngIf="fileItem.file.type===TypeFile.PDF" svgIcon="pdf-icon" aria-hidden="false">
+                    </mat-icon>
+                </div> -->
+                <div class="file__info" fxFlex fxLayout="column">
+                    <span class="file__title">{{ fileItem.fileName }}</span>
+                    <span class="file__time" *ngIf="uploadProgress < 100">{{uploadProgress}}%</span>
+                    <span class="file__text" *ngIf="!uploadProgress">Date Attached: {{ fileItem.file.lastModifiedDate |
+                        date:'medium' }}</span>
+                    <span class="file__text" *ngIf="!uploadProgress">Attached by: User Name</span>
+                </div>
+                <button *ngIf="!uploadProgress" type="button" class="file__btn" (click)="uploader.removeFile(fileItem)">
+                    <mat-icon svgIcon="file-remove" aria-hidden="false"></mat-icon>
+                </button>
+            </div>
+        </div>
+    </ng-template>
+    <ng-container *ngIf="myFiles.length">
+        <div class="file-nav-upload" fxLayout="column" fxLayoutAlign="start start">
+            <!-- <label class="new-file-btn" for="fileInput">Upload new file</label> -->
+            <label class="new-file-btn" (click)="btnClick()">Upload new file</label>
+            <span class="upload-text">Maximum size 5MB</span>
+        </div>
+    </ng-container>
+</div>

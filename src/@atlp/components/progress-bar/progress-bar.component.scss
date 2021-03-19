@@ -1,0 +1,46 @@
+@import "src/@atlp/scss/atlp";
+@import "src/@atlp/scss/variables";
+
+atlp-progress-bar {
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    width: 100%;
+    z-index: 1;
+
+    mat-progress-bar {
+        .mat-progress-bar-buffer {
+            background-color: transparent !important;
+        }
+    }
+}
+
+.panel-small {
+    position: absolute;
+    bottom: 3.5px;
+    right: 0;
+    width: 142px;
+    .mat-progress-bar {
+        height: 5px;
+        border-radius: 40px;
+    }
+    .mat-progress-bar-fill {
+        border-radius: 40px;
+    }
+    .mat-progress-bar-fill::after {
+        border-radius: 40px;
+        background-color: map-get($color, 'atlp-panel-title') !important;
+    }
+
+    .mat-progress-bar-background {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 40px;
+    }
+    mat-progress-bar {
+        .mat-progress-bar-buffer {
+            background-color: map-get($color, "atlp-purple-light") !important;
+        }
+    }
+}

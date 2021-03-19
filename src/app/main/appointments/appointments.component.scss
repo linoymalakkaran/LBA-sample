@@ -1,0 +1,40 @@
+@import "src/@atlp/scss/variables";
+
+.panel-container {
+  padding: 0 15px;
+  background-color: map-get($color, "atlp-grey-light") !important;
+  @media (min-width: 600px) {
+    padding: 0 30px;
+  }
+}
+
+.controls-buttons {
+  margin-top: 20px;
+  @media (min-width: 768px) {
+    right: 30px;
+    position: absolute;
+    top: 30px;
+    z-index: 1;
+    margin-top: 0;
+  }
+  button {
+    margin-left: 15px;
+  }
+}
+
+.components-nav {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  button {
+    margin-bottom: 20px;
+  }
+}
+
+.min-width-100-per {
+  min-width: 100%
+}
+
+

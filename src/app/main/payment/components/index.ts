@@ -1,0 +1,1 @@
+export * from './payment-checkout/payment-checkout.component';

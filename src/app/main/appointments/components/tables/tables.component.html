@@ -1,0 +1,94 @@
+<mat-table [dataSource]="dataSource" class="table">
+  <!-- Checkbox Column -->
+  <ng-container matColumnDef="select">
+    <mat-header-cell *matHeaderCellDef>
+      <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+        [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+      </mat-checkbox>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(element) : null"
+        [checked]="selection.isSelected(element)" [aria-label]="checkboxLabel(element)">
+      </mat-checkbox>
+      <!-- <div class="loader"></div> -->
+    </mat-cell>
+  </ng-container>
+  <!-- flow Column -->
+  <ng-container matColumnDef="flow">
+    <mat-header-cell *matHeaderCellDef> FLOW </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.flow}} </mat-cell>
+  </ng-container>
+
+  <!-- type Column -->
+  <ng-container matColumnDef="type">
+    <mat-header-cell *matHeaderCellDef> TYPE </mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.type}}</mat-cell>
+  </ng-container>
+
+  <!-- boo k Column -->
+  <ng-container matColumnDef="book">
+    <mat-header-cell *matHeaderCellDef> BOO K </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.book}} </mat-cell>
+  </ng-container>
+
+  <!-- container Column -->
+  <ng-container matColumnDef="container">
+    <mat-header-cell *matHeaderCellDef> CONTAINER </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.container}} </mat-cell>
+  </ng-container>
+
+  <!-- ISO Column -->
+  <ng-container matColumnDef="iso">
+    <mat-header-cell *matHeaderCellDef> ISO </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.iso}} </mat-cell>
+  </ng-container>
+
+  <!-- line Column -->
+  <ng-container matColumnDef="line">
+    <mat-header-cell *matHeaderCellDef> LINE </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.line}} </mat-cell>
+  </ng-container>
+
+  <!-- info Column -->
+  <ng-container matColumnDef="info">
+    <mat-header-cell *matHeaderCellDef> INFO </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{element.info}}
+      <!-- <div class="table-nav" fxFlex fxLayout="row" fxLayoutAlign="end center">
+        <button mat-raised-button color="basic" class="icon">
+          <mat-icon svgIcon="plus-dark" aria-hidden="false"></mat-icon>
+          Print
+        </button>
+        <button mat-raised-button color="basic" class="icon">
+          <mat-icon svgIcon="plus-dark" aria-hidden="false"></mat-icon>
+          Clone
+        </button>
+        <button mat-raised-button color="warn">Delete</button>
+      </div> -->
+    </mat-cell>
+  </ng-container>
+
+  <!-- expiry Column -->
+  <ng-container matColumnDef="expiry">
+    <mat-header-cell *matHeaderCellDef> EXPIRY </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.expiry}} </mat-cell>
+  </ng-container>
+
+  <!-- hold Column -->
+  <ng-container matColumnDef="hold">
+    <mat-header-cell *matHeaderCellDef> HOLD </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.hold}} </mat-cell>
+  </ng-container>
+
+  <!-- trip Column -->
+  <ng-container matColumnDef="trip">
+    <mat-header-cell *matHeaderCellDef> TRIP </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.trip}} </mat-cell>
+  </ng-container>
+
+
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="10"></mat-paginator>

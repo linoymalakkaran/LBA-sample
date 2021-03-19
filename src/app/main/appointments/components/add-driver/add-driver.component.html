@@ -1,0 +1,91 @@
+<div class="drawer-wrap add-driver" fxFlex fxLayout="column" fxLayoutAlign="none">
+    <div class="drawer-wrap-container">
+        <div class="drawer-header" fxLayout="row" fxLayoutAlign="space-between center">
+            <div class="drawer-info">
+                <span class="drawer-title">Select Driver</span>
+            </div>
+        </div>
+        <div class="drawer-body">
+            <div class="table-wrapper">
+                <h2 class="block-title">ADD NEW DRIVER</h2>
+
+                <form>
+                    <div class="driver-header" fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="start start">
+                        <atlp-search-bar class="search-bar-bg" (input)="search($event)"></atlp-search-bar>
+                        <div class="dropdown-col bg" fxFlex>
+                            <mat-select placeholder="Filters" class="dropdown-select bg" panelClass="panel-custom bg"
+                                required>
+                                <mat-option *ngFor="let type of types" [value]="type.value">
+                                    {{type.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </div>
+                    </div>
+
+                    <mat-table [dataSource]="dataSource" class="table bg">
+                        <!-- Checkbox Column -->
+                        <ng-container matColumnDef="select">
+                            <mat-header-cell *matHeaderCellDef class="check-box">
+                                <mat-checkbox class='light-purple-select' (change)="$event ? masterToggle() : null"
+                                    [checked]="selection.hasValue() && isAllSelected()"
+                                    [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                    [aria-label]="checkboxLabel()">
+                                </mat-checkbox>
+                            </mat-header-cell>
+                            <mat-cell *matCellDef="let element">
+                                <mat-checkbox [style.opacity]="selection.isSelected(element) || element.show ? 100 : 0"
+                                    class='light-purple-select' (click)="$event.stopPropagation()"
+                                    (change)="$event ? selection.toggle(element) : null"
+                                    [checked]="selection.isSelected(element)" [aria-label]="checkboxLabel(element)">
+                                </mat-checkbox>
+                            </mat-cell>
+                        </ng-container>
+                        <!-- Driver Name Column -->
+                        <ng-container matColumnDef="DriverName">
+                            <mat-header-cell *matHeaderCellDef> Driver Name </mat-header-cell>
+                            <mat-cell *matCellDef="let element">{{element.DriverName}}</mat-cell>
+                        </ng-container>
+
+                        <!-- Driver Contact Column -->
+                        <ng-container matColumnDef="DriverContact">
+                            <mat-header-cell *matHeaderCellDef> Driver Contact </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.DriverContact}} </mat-cell>
+                        </ng-container>
+
+                        <!-- Vehicle Column -->
+                        <ng-container matColumnDef="Vehicle">
+                            <mat-header-cell *matHeaderCellDef> Vehicle </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.Vehicle}} </mat-cell>
+                        </ng-container>
+
+                        <!-- Vehicle Type Column -->
+                        <ng-container matColumnDef="VehicleType">
+                            <mat-header-cell *matHeaderCellDef> Vehicle Type </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.VehicleType}} </mat-cell>
+                        </ng-container>
+
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;" (mouseover)="handleMouseOver(row)"
+                            (mouseleave)="handleMouseLeave(row)"></mat-row>
+                    </mat-table>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Start panel nav -->
+<div class="panel-nav" fxLayout="column" fxLayoutAlign="space-between center">
+    <!-- close btn -->
+    <button class="round-btn panel-btn" (click)="toggleSidebarOpen(SidebarName.addDriver)">
+        <mat-icon class="small-close-btn" svgIcon="close-white-icon" aria-hidden="false"></mat-icon>
+    </button>
+    <!-- soc-wrap -->
+    <div class="soc-wrap" fxLayout="column" fxLayoutAlign="end center">
+        <button class="round-btn">
+            <mat-icon svgIcon="soc-icon" aria-hidden="false"></mat-icon>
+        </button>
+    </div>
+</div>
+<!-- End panel nav -->

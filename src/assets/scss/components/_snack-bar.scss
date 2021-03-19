@@ -1,0 +1,28 @@
+.mat-snack-bar-container {
+    background-color: map-get($color, "atlp-white") !important;
+    padding: 15px 40px 15px 15px !important;
+    border-radius: 6px !important;
+    @media (min-width: 768px) {
+        padding: 20px 60px 20px 20px !important;
+    }
+    span {
+        font-size: 18px;
+        letter-spacing: 0px;
+        color: map-get($color, "atlp-table-color") !important;
+    }
+    img {
+        margin-right: 12px;
+        position: relative;
+        bottom: -1px;
+    }
+    button {
+        margin-left: 70px;
+        position: absolute;
+        top: 55%;
+        right: 10px;
+        transform: translateY(-50%);
+        @media (min-width: 768px) {
+            top: 52%;
+        }
+    }
+}

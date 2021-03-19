@@ -1,0 +1,21 @@
+<ng-container [ngSwitch]="searchRequiredAvatar">
+  <!-- Initial -->
+  <ng-template ngSwitchCase="INITIAL">
+    <button type="button" class="avatars initial" [class]="settingsAvatar.size" [class.round]="settingsAvatar.round">{{ initial }}</button>
+  </ng-template>
+  <!-- /Initial -->
+
+  <!-- Photo -->
+  <ng-template ngSwitchCase="PHOTO">
+    <div class="avatars photo" [class]="settingsAvatar.size" [class.round]="settingsAvatar.round">
+      <img [src]="userData.imgUrl" alt="" />
+    </div>
+  </ng-template>
+  <!-- /Photo -->
+
+  <!-- Default -->
+  <ng-template ngSwitchDefault>
+    <div class="avatars fallback" [class]="settingsAvatar.size" [class.round]="settingsAvatar.round"></div>
+  </ng-template>
+  <!-- /Default -->
+</ng-container>
