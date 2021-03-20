@@ -51,11 +51,11 @@ import { AppointmentEffects } from "./main/appointments/store/appointment.effect
     LayoutModule,
     //Shared modules
     SharedModule,
-    StoreModule.forRoot(appReducers),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25, // Retains last 25 states
-    }),
-    EffectsModule.forRoot([AppointmentEffects]),
+    // StoreModule.forRoot(appReducers),
+    // StoreDevtoolsModule.instrument({
+    //   maxAge: 25, // Retains last 25 states
+    // }),
+    // EffectsModule.forRoot([AppointmentEffects]),
   ],
   providers: [
     EnvServiceProvider,
