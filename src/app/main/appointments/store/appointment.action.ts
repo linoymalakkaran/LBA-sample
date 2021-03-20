@@ -8,7 +8,7 @@ export enum EAppointmentActions {
 }
 
 export class UploadAppointment implements Action {
-    public readonly type = EAppointmentActions.UploadAppointmentent;
+    public readonly type = EAppointmentActions.UploadAppointment;
     constructor(public payload: AppointmentUpload[]) { }
 }
 

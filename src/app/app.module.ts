@@ -21,6 +21,11 @@ import { AuthService } from "./core/services/auth.service";
 import { LoaderService } from "./core/services/loader.service";
 import { TokenInterceptor } from "./core/interceptor/token.interceptor";
 import { EnvServiceProvider } from "./env.service.provider";
+import { StoreModule } from "@ngrx/store";
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { appReducers } from "./store/reducers/app.reducer";
+import { AppointmentEffects } from "./main/appointments/store/appointment.effects";
 
 @NgModule({
   declarations: [AppComponent],
@@ -46,6 +51,11 @@ import { EnvServiceProvider } from "./env.service.provider";
     LayoutModule,
     //Shared modules
     SharedModule,
+    StoreModule.forRoot(appReducers),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+    }),
+    EffectsModule.forRoot([AppointmentEffects]),
   ],
   providers: [
     EnvServiceProvider,
