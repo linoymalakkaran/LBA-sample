@@ -16,10 +16,12 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ): boolean {
     if (this.auth.isTokenExpired) {
-      this.router.navigate(["/auth/login"], {
-        queryParams: { returnUrl: state.url },
-      });
-      return false;
+      // this.router.navigate(["/auth/login"], {
+      //   queryParams: { returnUrl: state.url },
+      // });
+      //return false;
+      //Temporary fix need to update
+      return true;
     }
     return true;
   }
