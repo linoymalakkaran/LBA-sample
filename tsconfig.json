@@ -15,7 +15,9 @@
     "lib": ["es2018", "dom"],
     "paths": {
       "@atlp": ["@atlp/"],
-      "@core/*": ["./src/app/core/*"]
+      "@core/*": [
+        "./src/app/core/*"
+      ],
     }
   },
   "angularCompilerOptions": {

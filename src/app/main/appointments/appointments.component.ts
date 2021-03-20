@@ -1,14 +1,14 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AtlpProgressBarService } from '@atlp/components/progress-bar/progress-bar.service';
-import { AtlpSidebarService } from '@atlp/components/sidebar/sidebar.service';
-import { SidebarName } from 'app/core/enums/sidebar-name.enum';
-import { IconsService } from '@atlp/services/icons.service';
-import { Subject } from 'rxjs';
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { AtlpProgressBarService } from "@atlp/components/progress-bar/progress-bar.service";
+import { AtlpSidebarService } from "@atlp/components/sidebar/sidebar.service";
+import { SidebarName } from "app/core/enums/sidebar-name.enum";
+import { IconsService } from "@atlp/services/icons.service";
+import { Subject } from "rxjs";
 
 @Component({
-  selector: 'app-appointments',
-  templateUrl: './appointments.component.html',
-  styleUrls: ['./appointments.component.scss']
+  selector: "app-appointments",
+  templateUrl: "./appointments.component.html",
+  styleUrls: ["./appointments.component.scss"],
 })
 export class AppointmentsComponent implements OnInit, OnDestroy {
   // sidebar
@@ -17,23 +17,23 @@ export class AppointmentsComponent implements OnInit, OnDestroy {
   appointement = {
     reference: 4770766,
     trucknumber: 94252,
-    paymentmode: 'Partial Payment (CREDIT)',
-    paymentmethod: '---',
-    paymentdate: 'dd/mm/yyyy',
-    otherreference: '---',
-    terminal: 'KHALIFA TERMINAL (ADT)',
-    Timelapsed: '00.12.32',
+    paymentmode: "Partial Payment (CREDIT)",
+    paymentmethod: "---",
+    paymentdate: "dd/mm/yyyy",
+    otherreference: "---",
+    terminal: "KHALIFA TERMINAL (ADT)",
+    Timelapsed: "00.12.32",
   };
   file = [
     {
-      Name: 'File name here',
-      date: 'June 12, 2018 03:31:23',
-      user: 'User Name'
+      Name: "File name here",
+      date: "June 12, 2018 03:31:23",
+      user: "User Name",
     },
     {
-      Name: 'File name here',
-      date: 'June 12, 2018 03:31:23',
-      user: 'User Name'
+      Name: "File name here",
+      date: "June 12, 2018 03:31:23",
+      user: "User Name",
     },
   ];
 
@@ -64,7 +64,7 @@ export class AppointmentsComponent implements OnInit, OnDestroy {
 
     // Set the mode
     // mode: 'determinate' | 'indeterminate' | 'buffer' | 'query'
-    this._atlpProgressBarService.setMode('determinate');
+    this._atlpProgressBarService.setMode("determinate");
 
     // Set the value
     // value: number
@@ -80,7 +80,7 @@ export class AppointmentsComponent implements OnInit, OnDestroy {
   }
 
   public loadedFiles(files): void {
-    console.log('loadedFiles', files);
+    console.log("loadedFiles", files);
   }
 
   // -----------------------------------------------------------------------------------------------------
@@ -90,10 +90,7 @@ export class AppointmentsComponent implements OnInit, OnDestroy {
   /**
    * On init
    */
-  ngOnInit(): void {
-
-  }
-
+  ngOnInit(): void {}
 
   /**
    * On destroy
@@ -145,7 +142,22 @@ export class AppointmentsComponent implements OnInit, OnDestroy {
    * Register icon for current component
    */
   private get icons(): Array<string> {
-    return ['close-white-icon', 'minimize-arrows', 'table-icon-two', 'table-icon-one', 'open-icon', 'plus-white', 'open-table-icon-active', 'open-table-icon', 'filter-icon', 'small-close-btn', 'soc-icon', 'download-icon', 'print-icon', 'credit-card-fill', 'back-arrow'];
+    return [
+      "close-white-icon",
+      "minimize-arrows",
+      "table-icon-two",
+      "table-icon-one",
+      "open-icon",
+      "plus-white",
+      "open-table-icon-active",
+      "open-table-icon",
+      "filter-icon",
+      "small-close-btn",
+      "soc-icon",
+      "download-icon",
+      "print-icon",
+      "credit-card-fill",
+      "back-arrow",
+    ];
   }
-
 }

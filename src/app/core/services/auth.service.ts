@@ -9,6 +9,7 @@ import { IUser } from '../models/IUser';
 export class AuthService {
 
   SESSION_IUSER = 'SESSION_LBAUSER';
+  isTokenExpired: boolean = false;
 
   constructor(
     private http: HttpClient,
