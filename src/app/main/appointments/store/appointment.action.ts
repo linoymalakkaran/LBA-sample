@@ -2,27 +2,27 @@ import { Action } from "@ngrx/store";
 import { AppointmentList } from "../models/Appointment.models";
 
 export enum EAppointmentActions {
-  UploadAppointment = "[Appointment] Upload Appointment",
-  UploadAppointmentSuccess = "[Appointment] Upload Appointment Success",
-  UploadAppointmentFailure = "[Appointment] Get User Failure",
+  GetAppointments = "[Appointment] Get Appointments",
+  GetAppointmentsSuccess = "[Appointment] Get Appointment Success",
+  GetAppointmentsFailure = "[Appointment] Get Appointment Failure",
 }
 
-export class UploadAppointment implements Action {
-  public readonly type = EAppointmentActions.UploadAppointment;
+export class GetAppointments implements Action {
+  public readonly type = EAppointmentActions.GetAppointments;
   constructor(public payload: AppointmentList[]) {}
 }
 
-export class UploadAppointmentSuccess implements Action {
-  public readonly type = EAppointmentActions.UploadAppointmentSuccess;
+export class GetAppointmentsSuccess implements Action {
+  public readonly type = EAppointmentActions.GetAppointmentsSuccess;
   constructor(public payload: any) {}
 }
 
-export class UploadAppointmentFailure implements Action {
-  public readonly type = EAppointmentActions.UploadAppointmentFailure;
+export class GetAppointmentsFailure implements Action {
+  public readonly type = EAppointmentActions.GetAppointmentsFailure;
   constructor(public payload: any) {}
 }
 
 export type AppointmentActions =
-  | UploadAppointment
-  | UploadAppointmentSuccess
-  | UploadAppointmentFailure;
+  | GetAppointments
+  | GetAppointmentsSuccess
+  | GetAppointmentsFailure;

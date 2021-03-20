@@ -3,5 +3,5 @@ export interface AppointmentList {
     name: string;
 }
 export interface AppointmentState {
-    AppointmentUpload: AppointmentList[];
+    appointmentList: AppointmentList[];
 }

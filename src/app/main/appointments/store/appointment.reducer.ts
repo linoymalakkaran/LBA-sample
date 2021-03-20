@@ -1,6 +1,9 @@
 import { EAppointmentActions, AppointmentActions } from "./Appointment.action";
-import { IAppointmentState, initialAppointmentState } from "./Appointment.state";
-import { AppointmentUpload } from "../models/Appointment.models";
+import {
+  IAppointmentState,
+  initialAppointmentState,
+} from "./Appointment.state";
+import { AppointmentList } from "../models/Appointment.models";
 
 export const initialState: IAppointmentState = initialAppointmentState;
 
@@ -9,16 +12,16 @@ export function AppointmentReducer(
   action: AppointmentActions
 ): IAppointmentState {
   switch (action.type) {
-    case EAppointmentActions.UploadAppointment: {
+    case EAppointmentActions.GetAppointments: {
       return {
         ...state,
         Appointment: {
           ...state.Appointment,
-          AppointmentUpload: action.payload,
+          appointmentList: action.payload,
         },
       };
     }
-    case EAppointmentActions.UploadAppointmentFailure: {
+    case EAppointmentActions.GetAppointmentsFailure: {
       return {
         ...state,
         loading: false,
