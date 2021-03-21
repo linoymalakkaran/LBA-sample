@@ -27,6 +27,7 @@ import { Store } from "@ngrx/store";
 import { appReducers } from "./store/reducers/app.reducer";
 import { EffectsModule } from "@ngrx/effects";
 import { AppointmentEffects } from "./main/appointments/store/appointment.effects";
+import { AppointmentAPI } from "./main/appointments/config/api.appointment.config";
 
 @NgModule({
   declarations: [AppComponent],
@@ -63,6 +64,7 @@ import { AppointmentEffects } from "./main/appointments/store/appointment.effect
     AuthService,
     LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    AppointmentAPI
   ],
   bootstrap: [AppComponent],
   //schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]

@@ -10,7 +10,7 @@ import { DataDescriptor } from "../models/data-descriptor.model";
 @Injectable({
   providedIn: "root",
 })
-export class AppointmenttableService {
+export class AppointmentTableService {
   constructor(
     private http: HttpClient,
     private appointmenttableApi: AppointmentAPI

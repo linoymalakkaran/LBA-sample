@@ -11,7 +11,7 @@ import {
   takeUntil,
   tap,
 } from "rxjs/operators";
-import { AppointmenttableService } from "../services/appointmenttable.service";
+import { AppointmentTableService } from "../services/appointmenttable.service";
 import {
   LBAppointmentActions,
   GetAppointmentTableData,
@@ -66,7 +66,7 @@ export class AppointmentEffects {
   );
 
   constructor(
-    private appointmenttableService: AppointmenttableService,
+    private appointmenttableService: AppointmentTableService,
     private actions$: Actions
   ) {}
 }

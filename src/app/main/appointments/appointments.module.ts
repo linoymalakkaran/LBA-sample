@@ -19,7 +19,8 @@ import {
 } from "./components";
 import { AppointmentRoutingModule } from "./appointment-routing-module";
 import { AppointmentService } from "./services/appointment.service";
-import { AppointmenttableService } from "./services/appointmenttable.service";
+import { AppointmentTableService } from "./services/appointmenttable.service";
+import { AppointmentAPI } from "./config/api.appointment.config";
 
 @NgModule({
   declarations: [
@@ -39,6 +40,6 @@ import { AppointmenttableService } from "./services/appointmenttable.service";
     SharedModule,
     AtlpSearchBarModule,
   ],
-  providers: [AppointmentService, AppointmenttableService],
+  providers: [AppointmentService, AppointmentTableService],
 })
 export class AppointmentsModule {}
