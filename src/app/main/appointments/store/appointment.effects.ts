@@ -19,7 +19,8 @@ import {
   GetAppointmentTableDataFailure,
   DeleteAppointmentTableData,
 } from "./appointment.action";
-import * as appointmentTableActions from './appointment.action';
+import * as appointmentTableActions from "./appointment.action";
+import { AppointmentTableResponse } from "../models/Appointment.models";
 
 @Injectable()
 export class AppointmentEffects {
@@ -36,7 +37,7 @@ export class AppointmentEffects {
         )
     ),
     map(
-      (response: any) =>
+      (response: AppointmentTableResponse) =>
         new GetAppointmentTableDataSuccess(response.data ? response.data : [])
     )
   );

@@ -55,7 +55,7 @@ export class AppointmentTableComponent
 
   constructor(
     private _iconsService: IconsService,
-    private appointmentstore$: Store<fromAppointmentState.AppointmentTableState>,
+    private appointmentstore$: Store<fromAppointmentState.IAppointmentTableState>,
     private store: Store<IAppState>,
     private toaster: ToastrService
   ) {
@@ -81,6 +81,7 @@ export class AppointmentTableComponent
   ngOnInit(): void {
     // this.dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
     this.dataSource = new MatTableDataSource<PeriodicElement>([]);
+    this.getData();
     this.initSubscriptions();
   }
 
@@ -113,7 +114,7 @@ export class AppointmentTableComponent
     this.subscriptions.push(
       this.getAppointmentData$.subscribe((data) => {
         if (data) {
-          this.dataSource = new MatTableDataSource<PeriodicElement>(data.data);
+          this.dataSource = new MatTableDataSource<PeriodicElement>(data);
           this.totalItemCount = data.totalItemCount;
         }
       })

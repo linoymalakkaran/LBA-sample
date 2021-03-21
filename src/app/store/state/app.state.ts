@@ -4,10 +4,10 @@ import {
 } from "app/main/appointments/store/appointment.state";
 
 export interface IAppState {
-  Appointment: IAppointmentState;
+  appointment: IAppointmentState;
 }
 export const initialAppState: IAppState = {
-  Appointment: InitialAppointmentState,
+  appointment: InitialAppointmentState,
 };
 export function getInitialState(): IAppState {
   return initialAppState;

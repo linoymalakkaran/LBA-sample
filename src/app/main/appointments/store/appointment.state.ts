@@ -1,8 +1,8 @@
-export interface AppointmentTableState {
+export interface IAppointmentTableState {
   filter: any;
   order: any;
   pagination: any;
-  documentList: any;
+  appointmentList: any;
   error: string | any;
   loading: boolean;
   refreshTable: boolean;
@@ -10,7 +10,7 @@ export interface AppointmentTableState {
 }
 
 export interface IAppointmentState {
-  AppointmentTableState: AppointmentTableState;
+  AppointmentTableState: IAppointmentTableState;
 }
 
 export const InitialAppointmentState: IAppointmentState = {
@@ -18,7 +18,7 @@ export const InitialAppointmentState: IAppointmentState = {
     filter: [],
     order: [],
     pagination: {},
-    documentList: [],
+    appointmentList: [],
     refreshTable: false,
     error: null,
     loading: false,

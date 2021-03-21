@@ -17,3 +17,8 @@ export interface Sort {
   value: string;
   viewValue: string;
 }
+
+export interface AppointmentTableResponse {
+  data: PeriodicElement[],
+  msg: string
+}

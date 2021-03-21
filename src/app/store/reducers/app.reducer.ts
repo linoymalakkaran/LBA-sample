@@ -8,7 +8,7 @@ import {
 import { appointmentReducer } from "app/main/appointments/store/Appointment.reducer";
 
 export const appReducers: ActionReducerMap<IAppState, any> = {
-  Appointment: appointmentReducer,
+  appointment: appointmentReducer,
 };
 
 export function clearState(

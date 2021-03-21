@@ -24,7 +24,7 @@ export function appointmentReducer(
         AppointmentTableState: {
           ...state.AppointmentTableState,
           loading: false,
-          documentList: action.payload,
+          appointmentList: action.payload,
           error: null,
         },
       };

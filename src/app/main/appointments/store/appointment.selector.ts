@@ -4,45 +4,45 @@ import {
   MemoizedSelector,
 } from "@ngrx/store";
 
-import { AppointmentTableState } from "./appointment.state";
+import { IAppointmentState } from "./appointment.state";
 
-const getHTableDataError = (state: AppointmentTableState): string =>
-  state.error || null;
-const getHTableData = (state: AppointmentTableState): any =>
-  state.documentList || [];
-const getDataLoading = (state: AppointmentTableState): boolean =>
-  state.loading || false;
-const getRefreshTableHS = (state: AppointmentTableState): boolean =>
-  state.refreshTable || false;
-const deleteHTDataCompleted = (state: AppointmentTableState): string =>
-  state.deleteFileId || null;
+const getAppointmentTableDataError = (state: IAppointmentState): string =>
+  state.AppointmentTableState.error || null;
+const getAppointmentTableData = (state: IAppointmentState): any =>
+  state.AppointmentTableState.appointmentList || [];
+const getAppointmentDataLoading = (state: IAppointmentState): boolean =>
+  state.AppointmentTableState.loading || false;
+const getAppointmentRefreshTableHS = (state: IAppointmentState): boolean =>
+  state.AppointmentTableState.refreshTable || false;
+const deleteAppointmentTableDataCompleted = (state: IAppointmentState): string =>
+  state.AppointmentTableState.deleteFileId || null;
 
 export const selectAppointmentFeatureState: MemoizedSelector<
   object,
-  AppointmentTableState
-> = createFeatureSelector<AppointmentTableState>("appointmenttable");
+  IAppointmentState
+> = createFeatureSelector<IAppointmentState>("appointment");
 
 export const selectAppointmentDataError: MemoizedSelector<
   object,
   string
-> = createSelector(selectAppointmentFeatureState, getHTableDataError);
+> = createSelector(selectAppointmentFeatureState, getAppointmentTableDataError);
 
 export const selectAppointmentData: MemoizedSelector<
   object,
   any
-> = createSelector(selectAppointmentFeatureState, getHTableData);
+> = createSelector(selectAppointmentFeatureState, getAppointmentTableData);
 
 export const selectAppointmentDataLoading: MemoizedSelector<
   object,
   boolean
-> = createSelector(selectAppointmentFeatureState, getDataLoading);
+> = createSelector(selectAppointmentFeatureState, getAppointmentDataLoading);
 
 export const selectAppointmentDataRefresh: MemoizedSelector<
   object,
   boolean
-> = createSelector(selectAppointmentFeatureState, getRefreshTableHS);
+> = createSelector(selectAppointmentFeatureState, getAppointmentRefreshTableHS);
 
 export const selectAppointmentDataDeleted: MemoizedSelector<
   object,
   string
-> = createSelector(selectAppointmentFeatureState, deleteHTDataCompleted);
+> = createSelector(selectAppointmentFeatureState, deleteAppointmentTableDataCompleted);
