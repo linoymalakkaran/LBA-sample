@@ -25,6 +25,7 @@ import { AtlpDirectivesModule } from '@atlp/directives/directives';
 import { MenuComponent } from './components/menu/menu.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     MenuComponent,
@@ -53,7 +54,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatSnackBarModule,
     IMaskModule,
     AtlpDirectivesModule,
-    MatMenuModule
+    MatMenuModule,
+    ToastrModule.forRoot({preventDuplicates: true, maxOpened: 1}),
   ],
   exports: [
     MatFormFieldModule,

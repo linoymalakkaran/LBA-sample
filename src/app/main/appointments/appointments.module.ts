@@ -1,24 +1,25 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AppointmentsComponent } from './appointments.component';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { AppointmentsComponent } from "./appointments.component";
 
-import { AtlpSharedModule } from '@atlp/shared.module';
-import { SharedModule } from 'app/shared/shared.module';
-import { RouterModule } from '@angular/router';
+import { AtlpSharedModule } from "@atlp/shared.module";
+import { SharedModule } from "app/shared/shared.module";
+import { RouterModule } from "@angular/router";
 
-import { AtlpSearchBarModule } from '@atlp/components';
+import { AtlpSearchBarModule } from "@atlp/components";
 
-import { 
+import {
   AppointmentTableComponent,
   NewAppointmentComponent,
   AppointementChargesComponent,
   AppointementReportComponent,
   AppointmentFileComponent,
   AddAwbComponent,
-  AddDriverComponent
-} from './components';
-import { AppointmentRoutingModule } from './appointment-routing-module';
-
+  AddDriverComponent,
+} from "./components";
+import { AppointmentRoutingModule } from "./appointment-routing-module";
+import { AppointmentService } from "./services/appointment.service";
+import { AppointmenttableService } from "./services/appointmenttable.service";
 
 @NgModule({
   declarations: [
@@ -29,15 +30,15 @@ import { AppointmentRoutingModule } from './appointment-routing-module';
     AppointementReportComponent,
     AppointmentFileComponent,
     AddAwbComponent,
-    AddDriverComponent
+    AddDriverComponent,
   ],
   imports: [
-    // RouterModule.forChild(routes),
     AppointmentRoutingModule,
     CommonModule,
     AtlpSharedModule,
     SharedModule,
-    AtlpSearchBarModule
-  ]
+    AtlpSearchBarModule,
+  ],
+  providers: [AppointmentService, AppointmenttableService],
 })
-export class AppointmentsModule { }
+export class AppointmentsModule {}
