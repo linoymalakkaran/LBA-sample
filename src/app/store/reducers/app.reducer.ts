@@ -5,10 +5,10 @@ import {
   Action,
   MetaReducer,
 } from "@ngrx/store";
-import { AppointmentReducer } from "app/main/appointments/store/Appointment.reducer";
+import { appointmentReducer } from "app/main/appointments/store/Appointment.reducer";
 
 export const appReducers: ActionReducerMap<IAppState, any> = {
-  Appointment: AppointmentReducer,
+  Appointment: appointmentReducer,
 };
 
 export function clearState(

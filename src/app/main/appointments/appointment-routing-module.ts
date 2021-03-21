@@ -6,7 +6,7 @@ const routes = [
     {
       path: '',
       component: AppointmentsComponent
-    }
+    },
   ];
 
 @NgModule({

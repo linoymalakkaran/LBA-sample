@@ -22,9 +22,10 @@ import { LoaderService } from "./core/services/loader.service";
 import { TokenInterceptor } from "./core/interceptor/token.interceptor";
 import { EnvServiceProvider } from "./env.service.provider";
 import { StoreModule } from "@ngrx/store";
-import { EffectsModule } from '@ngrx/effects';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { Store } from "@ngrx/store";
 import { appReducers } from "./store/reducers/app.reducer";
+import { EffectsModule } from "@ngrx/effects";
 import { AppointmentEffects } from "./main/appointments/store/appointment.effects";
 
 @NgModule({
@@ -34,7 +35,6 @@ import { AppointmentEffects } from "./main/appointments/store/appointment.effect
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    //RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
     TranslateModule.forRoot(),
     // Material moment date module
     MatMomentDateModule,
@@ -59,10 +59,12 @@ import { AppointmentEffects } from "./main/appointments/store/appointment.effect
   ],
   providers: [
     EnvServiceProvider,
+    Store,
     AuthService,
     LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
+  //schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
 export class AppModule {}

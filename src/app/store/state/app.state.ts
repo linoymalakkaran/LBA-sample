@@ -1,13 +1,13 @@
 import {
-  initialAppointmentState,
+  InitialAppointmentState,
   IAppointmentState,
-} from "app/main/appointments/store/Appointment.state";
+} from "app/main/appointments/store/appointment.state";
 
 export interface IAppState {
   Appointment: IAppointmentState;
 }
 export const initialAppState: IAppState = {
-  Appointment: initialAppointmentState,
+  Appointment: InitialAppointmentState,
 };
 export function getInitialState(): IAppState {
   return initialAppState;

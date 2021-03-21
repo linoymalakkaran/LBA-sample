@@ -1,31 +1,80 @@
-import { EAppointmentActions, AppointmentActions } from "./Appointment.action";
+import { AppointmentActions, LBAppointmentActions } from "./appointment.action";
 import {
+  InitialAppointmentState,
   IAppointmentState,
-  initialAppointmentState,
-} from "./Appointment.state";
-import { AppointmentList } from "../models/Appointment.models";
+} from "./appointment.state";
 
-export const initialState: IAppointmentState = initialAppointmentState;
-
-export function AppointmentReducer(
-  state = initialAppointmentState,
+export function appointmentReducer(
+  state = InitialAppointmentState,
   action: AppointmentActions
 ): IAppointmentState {
   switch (action.type) {
-    case EAppointmentActions.GetAppointments: {
+    case LBAppointmentActions.GetAppointmentTableData: {
       return {
         ...state,
-        Appointment: {
-          ...state.Appointment,
-          appointmentList: action.payload,
+        AppointmentTableState: {
+          ...state.AppointmentTableState,
+          loading: true,
         },
       };
     }
-    case EAppointmentActions.GetAppointmentsFailure: {
+    case LBAppointmentActions.GetAppointmentTableDataSuccess: {
       return {
         ...state,
-        loading: false,
-        error: action.payload,
+        AppointmentTableState: {
+          ...state.AppointmentTableState,
+          loading: false,
+          documentList: action.payload,
+          error: null,
+        },
+      };
+    }
+    case LBAppointmentActions.GetAppointmentTableDataFailure: {
+      return {
+        ...state,
+        AppointmentTableState: {
+          ...state.AppointmentTableState,
+          loading: false,
+          error: action.payload,
+        },
+      };
+    }
+    case LBAppointmentActions.refreshAppointmentTableData: {
+      return {
+        ...state,
+        AppointmentTableState: {
+          ...state.AppointmentTableState,
+          refreshTable: action.payload,
+        },
+      };
+    }
+    case LBAppointmentActions.DeleteAppointmentDataCompleted: {
+      return {
+        ...state,
+        AppointmentTableState: {
+          ...state.AppointmentTableState,
+          loading: true,
+        },
+      };
+    }
+    case LBAppointmentActions.DeleteAppointmentDataCompleted: {
+      return {
+        ...state,
+        AppointmentTableState: {
+          ...state.AppointmentTableState,
+          loading: false,
+          deleteFileId: action.payload,
+        },
+      };
+    }
+    case LBAppointmentActions.DeleteAppointmentDataFailed: {
+      return {
+        ...state,
+        AppointmentTableState: {
+          ...state.AppointmentTableState,
+          loading: false,
+          error: action.payload,
+        },
       };
     }
     default:

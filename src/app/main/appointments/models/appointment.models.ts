@@ -1,7 +1,19 @@
-export interface AppointmentList {
-    id: string ;
-    name: string;
+export interface PeriodicElement {
+  flow: string;
+  type: string;
+  book: string;
+  container: string;
+  iso: string;
+  line: string;
+  info: string;
+  expiry: string;
+  hold: string;
+  trip: number;
+  selected: boolean;
 }
-export interface AppointmentState {
-    appointmentList: AppointmentList[];
+
+// select interface
+export interface Sort {
+  value: string;
+  viewValue: string;
 }

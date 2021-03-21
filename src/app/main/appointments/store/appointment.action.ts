@@ -1,28 +1,58 @@
 import { Action } from "@ngrx/store";
-import { AppointmentList } from "../models/Appointment.models";
+import { DataDescriptor } from "../models/data-descriptor.model";
 
-export enum EAppointmentActions {
-  GetAppointments = "[Appointment] Get Appointments",
-  GetAppointmentsSuccess = "[Appointment] Get Appointment Success",
-  GetAppointmentsFailure = "[Appointment] Get Appointment Failure",
+export enum LBAppointmentActions {
+  GetAppointmentTableData = '[Get Document] Request',
+  GetAppointmentTableDataSuccess = '[Get Document] Success',
+  GetAppointmentTableDataFailure = '[Get Document] Failure',
+  refreshAppointmentTableData = '[event trigger] refresh Appointment Table Data',
+  DeleteAppointmentTableData = '[ delete doc]  Delete Documnent',
+  DeleteAppointmentDataCompleted = '[delete doc ] Delete completed',
+  DeleteAppointmentDataFailed = '[delete doc] Delete Failed'
 }
 
-export class GetAppointments implements Action {
-  public readonly type = EAppointmentActions.GetAppointments;
-  constructor(public payload: AppointmentList[]) {}
+export class GetAppointmentTableData implements Action {
+  public readonly type = LBAppointmentActions.GetAppointmentTableData;
+  constructor(public payload: DataDescriptor) { }
 }
 
-export class GetAppointmentsSuccess implements Action {
-  public readonly type = EAppointmentActions.GetAppointmentsSuccess;
-  constructor(public payload: any) {}
+export class GetAppointmentTableDataSuccess implements Action {
+  public readonly type = LBAppointmentActions.GetAppointmentTableDataSuccess;
+  constructor(public payload: any) { }
 }
 
-export class GetAppointmentsFailure implements Action {
-  public readonly type = EAppointmentActions.GetAppointmentsFailure;
-  constructor(public payload: any) {}
+export class GetAppointmentTableDataFailure implements Action {
+  public readonly type = LBAppointmentActions.GetAppointmentTableDataFailure;
+  constructor(public payload: string) { }
 }
 
-export type AppointmentActions =
-  | GetAppointments
-  | GetAppointmentsSuccess
-  | GetAppointmentsFailure;
+export class RefreshAppointmentTableData implements Action {
+  public readonly type = LBAppointmentActions.refreshAppointmentTableData;
+  constructor(public payload: boolean) { }
+}
+
+export class DeleteAppointmentTableData implements Action {
+  public readonly type = LBAppointmentActions.DeleteAppointmentTableData;
+  constructor(public payload: string) { }
+}
+
+export class DeleteAppointmentDataCompleted implements Action {
+  public readonly type = LBAppointmentActions.DeleteAppointmentDataCompleted;
+  constructor(public payload: any) { }
+
+}
+
+export class DeleteAppointmentDataFailed implements Action {
+  public readonly type = LBAppointmentActions.DeleteAppointmentDataFailed;
+  constructor(public payload: any) { }
+}
+
+
+export type AppointmentActions=
+GetAppointmentTableData |
+GetAppointmentTableDataSuccess |
+GetAppointmentTableDataFailure |
+RefreshAppointmentTableData |
+DeleteAppointmentTableData |
+DeleteAppointmentDataCompleted |
+DeleteAppointmentDataFailed;

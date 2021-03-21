@@ -4,7 +4,7 @@ export class EnvService {
 
   public baseUrl = "";
 
-  public apiUrl = "";
+  public baseApiUrl = "";
 
   public enableDebug = false;
 
