@@ -1,4 +1,4 @@
-export interface AppointmentTableModel {
+export interface AppointmentTableState {
   filter: any;
   order: any;
   pagination: any;
@@ -10,7 +10,7 @@ export interface AppointmentTableModel {
 }
 
 export interface IAppointmentState {
-  AppointmentTableState: AppointmentTableModel;
+  AppointmentTableState: AppointmentTableState;
 }
 
 export const InitialAppointmentState: IAppointmentState = {

@@ -56,6 +56,7 @@
     "ngx-awesome-uploader": "^10.0.4",
     "ngx-color-picker": "8.2.0",
     "ngx-cookie-service": "2.3.0",
+    "ngx-toastr": "^13.2.1",
     "perfect-scrollbar": "1.4.0",
     "prismjs": "1.19.0",
     "rxjs": "^6.6.0",
