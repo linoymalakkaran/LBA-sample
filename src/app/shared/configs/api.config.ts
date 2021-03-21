@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { EnvService } from "src/app/env.service";
+import { EnvService } from "app/env.service";
 
 @Injectable()
 export class ApiConfig {
@@ -7,11 +7,7 @@ export class ApiConfig {
 
   // Common
 
-  getLbaUIUrl = (): string => `${this.api.lbaUIUrl}`;
+  getLbaUIUrl = (): string => `${this.api.baseApiUrl}`;
 
-  LBA_POST_CreateAppointments = (): any =>
-    `${this.api.apiUrl}lba/api/appointment/Create`;
-    
-  DO_GET_Appointments = (term: string, pageSize: number = 10): string =>
-    `${this.api.apiUrl}lba/api/appointment/get?searchString=${term}&pageSize=${pageSize}`;
+  
 }
