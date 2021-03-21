@@ -1,9 +1,28 @@
 <div class="min-width-100-per" class="table-container" fxFlex fxLayout="column">
   <!-- Start table controls -->
-  <div class="table-controls" fxFlex="none" fxLayout="row" fxLayoutAlign="space-between center">
-    <div class="table-filters" fxFlex="none" fxLayout="row" fxLayoutAlign="start center">
-      <button mat-raised-button color="basic" fxFlex="none">
-        <!-- <mat-icon svgIcon="plus-dark" aria-hidden="false"></mat-icon> -->
+  <div
+    class="table-controls"
+    fxFlex="none"
+    fxLayout="row"
+    fxLayoutAlign="space-between center"
+  >
+    <div
+      class="table-filters"
+      fxFlex="none"
+      fxLayout="row"
+      fxLayoutAlign="start center"
+    >
+      <!-- <button mat-raised-button color="basic" fxFlex="none">
+        <mat-icon svgIcon="plus-dark" aria-hidden="false"></mat-icon>
+        Filter
+      </button> -->
+      <button
+        mat-raised-button
+        color="basic"
+        class="icon filter-btn ml-12 mr-12"
+        (click)="toggleSidebarOpen(SidebarName.filtersSidebar)"
+      >
+        <mat-icon svgIcon="filter-icon" aria-hidden="false"></mat-icon>
         Filter
       </button>
       <!-- <mat-select class="dropdown-select" panelClass="panel-custom">
@@ -22,13 +41,21 @@
       <!-- Start Checkbox Column -->
       <ng-container matColumnDef="select">
         <mat-header-cell *matHeaderCellDef>
-          <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
-            [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+          <mat-checkbox
+            (change)="$event ? masterToggle() : null"
+            [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()"
+            [aria-label]="checkboxLabel()"
+          >
           </mat-checkbox>
         </mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(element) : null"
-            [checked]="selection.isSelected(element)" [aria-label]="checkboxLabel(element)">
+          <mat-checkbox
+            (click)="$event.stopPropagation()"
+            (change)="$event ? selection.toggle(element) : null"
+            [checked]="selection.isSelected(element)"
+            [aria-label]="checkboxLabel(element)"
+          >
           </mat-checkbox>
           <!-- Start <div class="loader"></div> -->
         </mat-cell>
@@ -38,42 +65,42 @@
       <!-- Start flow Column -->
       <ng-container matColumnDef="flow">
         <mat-header-cell *matHeaderCellDef> FLOW </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.flow}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{ element.flow }} </mat-cell>
       </ng-container>
       <!-- End flow Column -->
 
       <!-- Start type Column -->
       <ng-container matColumnDef="type">
         <mat-header-cell *matHeaderCellDef> TYPE </mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.type}}</mat-cell>
+        <mat-cell *matCellDef="let element">{{ element.type }}</mat-cell>
       </ng-container>
       <!-- End type Column -->
 
       <!-- Start book Column -->
       <ng-container matColumnDef="book">
         <mat-header-cell *matHeaderCellDef> BOO K </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.book}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{ element.book }} </mat-cell>
       </ng-container>
       <!-- End book Column -->
 
       <!-- Start container Column -->
       <ng-container matColumnDef="container">
         <mat-header-cell *matHeaderCellDef> CONTAINER </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.container}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{ element.container }} </mat-cell>
       </ng-container>
       <!-- End container Column -->
 
       <!-- Start ISO Column -->
       <ng-container matColumnDef="iso">
         <mat-header-cell *matHeaderCellDef> ISO </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.iso}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{ element.iso }} </mat-cell>
       </ng-container>
       <!-- End ISO Column -->
 
       <!-- Start line Column -->
       <ng-container matColumnDef="line">
         <mat-header-cell *matHeaderCellDef> LINE </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.line}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{ element.line }} </mat-cell>
       </ng-container>
       <!-- End line Column -->
 
@@ -81,7 +108,7 @@
       <ng-container matColumnDef="info">
         <mat-header-cell *matHeaderCellDef> INFO </mat-header-cell>
         <mat-cell *matCellDef="let element">
-          {{element.info}}
+          {{ element.info }}
           <!-- <div class="table-nav" fxFlex fxLayout="row" fxLayoutAlign="end center">
           <button mat-raised-button color="basic" class="icon">
             <mat-icon svgIcon="plus-dark1" aria-hidden="false"></mat-icon>
@@ -100,31 +127,59 @@
       <!-- Start expiry Column -->
       <ng-container matColumnDef="expiry">
         <mat-header-cell *matHeaderCellDef> EXPIRY </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.expiry}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{ element.expiry }} </mat-cell>
       </ng-container>
       <!-- End expiry Column -->
 
       <!-- Start hold Column -->
       <ng-container matColumnDef="hold">
         <mat-header-cell *matHeaderCellDef> HOLD </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.hold}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{ element.hold }} </mat-cell>
       </ng-container>
       <!-- End hold Column -->
 
       <!-- Start trip Column -->
       <ng-container matColumnDef="trip">
         <mat-header-cell *matHeaderCellDef> TRIP </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.trip}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{ element.trip }} </mat-cell>
       </ng-container>
       <!-- End trip Column -->
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRecord(row)"></mat-row>
+      <mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        (click)="getRecord(row)"
+      ></mat-row>
     </mat-table>
   </div>
   <!-- End table content -->
 
   <!-- Start mat-paginator -->
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="10"></mat-paginator>
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    [pageSize]="10"
+  ></mat-paginator>
   <!-- End mat-paginator -->
+</div>
+
+<div class="sidebar-container" fxLayout="row" fxLayoutAlign="start start">
+  <atlp-sidebar
+    class="filters-sidebar"
+    [name]="SidebarName.filtersSidebar"
+    position="left"
+    [folded]="false"
+    [invisibleOverlay]="true"
+  >
+    <appointment-filters
+      [toggleFilters]="toggleFilters"
+      *ngIf="showFilters"
+      title="FILTER APPOINTMENT"
+      sectiontitle1="SEARCH BY"
+      [SearchbyOptions]="SearchbyOptions"
+      [appliedfilters]="appliedfilters"
+      [changeFilters]="changeFilters"
+      [clearfilters]="clearfilters"
+    >
+    </appointment-filters>
+  </atlp-sidebar>
 </div>

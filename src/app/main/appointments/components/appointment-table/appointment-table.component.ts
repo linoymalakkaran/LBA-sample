@@ -33,6 +33,8 @@ import {
   Iorder,
   Ipagination,
 } from "../../models/data-descriptor.model";
+import { AtlpSidebarService } from "@atlp/components/sidebar/sidebar.service";
+import { appointTableSearchbyOptions } from "../../models/appointment.filter.model";
 
 @Component({
   selector: "appointments-table",
@@ -52,14 +54,23 @@ export class AppointmentTableComponent
   pagination: Ipagination = { pageIndex: 1, pageSize: 15 };
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   totalItemCount = 15;
+  SidebarName = SidebarName;
+  showFilters: boolean; 
+  appliedfilters = [
+    'Accepted',
+  ];
+  typeViewBasic: boolean;
 
   constructor(
     private _iconsService: IconsService,
     private appointmentstore$: Store<fromAppointmentState.IAppointmentTableState>,
     private store: Store<IAppState>,
-    private toaster: ToastrService
+    private toaster: ToastrService,
+    private _atplSidebarService: AtlpSidebarService
   ) {
     this._iconsService.registerIcons(this.icons);
+    this.showFilters = true;
+    this.typeViewBasic = false;
   }
 
   getAppointmentData$: Observable<any> = this.appointmentstore$.pipe(
@@ -195,8 +206,36 @@ export class AppointmentTableComponent
   /**
    * open sidebar report from checked row
    */
+
+   SearchbyOptions = appointTableSearchbyOptions;
+
   getRecord(row): void {
     this.changeState.emit(SidebarName.report);
+  }
+
+  toggleSidebarOpen(key): void {
+    this._atplSidebarService.getSidebar(key).toggleOpen();
+  }
+
+  toggleFilters = (args: any): void => {
+    // callback code here
+    this.showFilters = !this.showFilters;
+  }
+
+  changeFilters = (filter: string): void => {
+    if (filter !== '') {
+      // callback code here
+      if (this.appliedfilters.includes(filter)) {
+        this.appliedfilters = this.appliedfilters.filter(elem => elem !== filter);
+      }
+      else {
+        this.appliedfilters.push(filter);
+      }
+    }
+  }
+
+  clearfilters = (): void => {
+    this.appliedfilters = [];
   }
 
   ngOnDestroy(): void {

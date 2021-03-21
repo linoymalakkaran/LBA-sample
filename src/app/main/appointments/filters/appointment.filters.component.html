@@ -84,7 +84,7 @@
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-description>
-          <span class="panel-title">Vessel Tracker</span>
+          <span class="panel-title">Appointment Tracker</span>
         </mat-panel-description>
       </mat-expansion-panel-header>
       <div class="panel-body" fxLayout="column">
@@ -137,87 +137,6 @@
           <mat-datepicker #to></mat-datepicker>
         </div>
       </div>
-    </mat-expansion-panel>
-  </mat-accordion>
-  <mat-accordion class="filters-accordion" multi>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-description>
-          <span
-            class="panel-title"
-            *ngIf="appliedfilters?.length; else elseBlock"
-          >
-            Call Request ({{ appliedfilters?.length }})
-          </span>
-          <ng-template #elseBlock>
-            <span class="panel-title">Call Request</span></ng-template
-          >
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <div class="panel-body">
-        <div
-          class="light-purple-select"
-          fxLayout="column"
-          fxLayoutAlign="start start"
-          fxFlex="100"
-        >
-          <mat-checkbox
-            (change)="selectChange($event, 'Accepted')"
-            class="filters-checkbox"
-            [checked]="appliedfilters?.includes('Accepted')"
-          >
-            Accepted
-          </mat-checkbox>
-          <mat-checkbox
-            (change)="selectChange($event, 'Pending')"
-            [checked]="appliedfilters?.includes('Pending')"
-            class="filters-checkbox"
-            >Pending
-          </mat-checkbox>
-          <mat-checkbox
-            (change)="selectChange($event, 'Rejected')"
-            class="filters-checkbox"
-            [checked]="appliedfilters?.includes('Rejected')"
-            >Rejected
-          </mat-checkbox>
-        </div>
-      </div>
-    </mat-expansion-panel>
-  </mat-accordion>
-  <mat-accordion class="filters-accordion" multi>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-description>
-          <span class="panel-title">Manifest</span>
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-    </mat-expansion-panel>
-  </mat-accordion>
-  <mat-accordion class="filters-accordion" multi>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-description>
-          <span class="panel-title">Discharge List</span>
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-    </mat-expansion-panel>
-  </mat-accordion>
-  <mat-accordion class="filters-accordion" multi>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-description>
-          <span class="panel-title">Loading List</span>
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-    </mat-expansion-panel>
-  </mat-accordion>
-  <mat-accordion class="filters-accordion" multi>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-description>
-          <span class="panel-title">ETD Change Requst</span>
-        </mat-panel-description>
-      </mat-expansion-panel-header>
     </mat-expansion-panel>
   </mat-accordion>
   <button mat-raised-button color="primary" class="savefilters-btn">
