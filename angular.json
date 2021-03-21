@@ -25,11 +25,11 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/environment.js"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/environment.js"
+              "src/styles.scss"
             ],
             "scripts": [],
             "showCircularDependencies": false

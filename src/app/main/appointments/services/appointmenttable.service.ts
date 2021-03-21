@@ -21,7 +21,7 @@ export class AppointmenttableService {
   ): Observable<PeriodicElement[]> {
     // return this.http.get(this.appointmenttableApi.GET_APPOINTMENT_TABLE(), {
     //   headers: createDescriptorHeader(payload),
-    // });
+    // }); 
     return of(ELEMENT_DATA);
   }
 
